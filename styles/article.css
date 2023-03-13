@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+html {
+    margin: 0px;
+    padding: 0px;
+    min-width: 300px;
+}
+
+body {
+    font-family: 'Noto Serif', serif;
+    display: grid;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background: url("/background-all") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    min-width: 300px;
+}
+.img-side {
+    padding: 0;
+    background: url("/colors-Rw.jfif") repeat;
+    background-attachment: fixed;
+    background-size: 22%;
+    bottom: 0;
+    top: 0;
+    width: 3em;
+    position: absolute;
+    height: 100%;
+}
+
+.img-right {
+    margin: 0 0 0px 0;
+    padding: 0;
+    background: url("/colors-Rw.jfif") repeat;
+    background-attachment: fixed;
+    background-size: 22%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3em;
+    position: absolute;
+    height: 100%
+}
+.begin {
+    display: grid;
+    height: 100px;
+    margin: 0px 0 0 0;
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0em 0;
+    margin-top: 0em;
+}
+.nav-img {
+    background-image: url("/colors-Rw.jfif");
+    width: 100%;
+    height: 1.5em;
+    margin: 0px 0 0 0;
+    padding: 0;
+}
+.inTop {
+    display: flex;
+}
+.begin img {
+    display: none;
+}
+.opener {
+    font-size: 2.5em;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+#menu-icon {
+    cursor: pointer;
+}
+
+
+.logo {
+    text-decoration: none;
+    color: black;
+    font-size: 31px;
+    padding: 6px 20px;
+    margin: 0px 0px 0px 70px;
+    text-transform: uppercase;
+    transition: all .3s;
+}
+
+.logo:hover {
+    background-color: white;
+ /*   box-shadow: 3px -3px gray; */
+    border-radius: .4em;
+    color: gray;
+}
+.home {
+    font-size: 25px;
+    display: none;
+} 
+
+nav {
+    margin-right: 4em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+    margin: 0 30px 0 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    padding: 8px 9px;
+    border-radius: .3em;
+    transition: all .3s;
+}
+nav ul li a:hover {
+    background-color: white;
+    color: gray;
+}
+.active {
+    background-color: gray;
+    color: white;
+}
+#fa, #fb, #fc, #fd,#fe, #ff, #fg {
+    display: none;
+}
+.below-nav {
+    background-image: url("/A\ book\ 2-my\ brand\ \(2\).jfif");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 75vw;
+    height: 83vh;
+    display: flex;
+    margin: auto;
+    opacity: 96%;
+    border-radius: .3vw;
+    justify-content: space-evenly;
+    box-shadow: -.1vw -.1vw 0.5vw 0vw gray;
+}
+.left-side  {
+    width: 40vw;
+    word-wrap: break-word;
+    display: grid;
+    grid-gap: 1vw;
+    margin: 0 auto;
+    height: 80vh;
+    overflow: auto;
+}
+.left-side header {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1vw;
+    width: 32vw;
+    margin: auto;
+    height: 3vh;
+}
+h3 {
+    text-transform: uppercase;
+}
+figure img {
+    height: 21vh;
+    width: 32vw;
+    padding: 0;
+    margin: 0 auto; 
+    object-fit: cover;
+    border-radius: .7vw;
+    border: solid;
+}
+article {
+    font-size: 1vw;
+    line-height: 1.4vw;
+    margin: auto;
+    width: 33vw;
+}
+
+.right-side {
+    display: block;
+    margin: 0;
+    overflow: auto;
+    width: 35vw;
+    text-align: center;
+}
+.first, .second {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.right-side img {
+    object-fit: cover;
+    height: 5vw;
+    width: 5vw;
+    margin: 1vw auto;
+    border-radius: .4vw;
+    box-shadow: -.1vw -.1vw 0.2vw 0vw black;
+}
+textarea {
+    height: 4vw;
+    width: 22.8vw;
+    border: none;
+    margin: 2vw 2vw -.5vw 0vw;
+    border-radius: .3vw;
+    font-size: 1vw;
+    outline: none;
+}
+.submit-btn {
+    margin-top: 0px;
+    padding: 10px;
+    border: none;
+    background-color: gray;
+    border-radius: .3vw;
+    outline: none;
+    transition: .5s;
+    display: none;
+}
+.submit-btn:hover {
+    color: white;
+}
+.right-side .comment {
+    height: fit-content;
+    width: 23vw;
+    border: none;
+    margin: 2vw 2vw -.5vw 0vw;
+    word-wrap: break-word;
+    border-radius: .3vw;
+    font-size: 1.1vw;
+    background-color: rgb(202, 202, 201);
+}
+.comment p {
+    line-height: 20px;
+    padding: 0vw 1vw ;
+}
+
+
+.like {
+    width: 33vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+.left, .right {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+#input-1, #input-2 {
+    padding: 0;
+    margin: auto;
+    height: 2vw;
+    width: 8vw;
+    font-size: 1.5vw;
+    text-align: center;
+    border: none;
+    background: none;
+    pointer-events: none;
+}
+button {
+    margin: auto;
+    font-size: 2vw;
+    border: none;
+    background: none;
+    color: black;
+}
+@media (max-width: 1060px) {
+    nav ul {
+        gap: 1em;
+        margin-right: 0px;
+    }
+    nav ul li a {
+        font-size: 2.3vw;
+        padding: .3em;
+    }
+    .img-side, .img-right {
+        width: 5vw;
+    }
+    .logo {
+        font-size: 3.2vw;
+    }
+    .below-nav {
+        width: 82vw;
+        height: 78vh;
+        margin: 1vw auto;
+    } 
+    .left-side {
+        height: 97%;
+        width: 47vw;
+        margin-left: -2vw;
+        overflow: auto;
+    }
+    .left-side header {
+        font-size: 1.3vw;
+        justify-content: space-around;
+        width: 41vw;
+    }
+    article {
+        font-size: 1.5vw;
+        margin-top: -2vw;
+        line-height: 1.9vw;
+        width: 35vw;
+    }
+    .like {
+        width: 43vw;
+        margin: 1vw auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+   figure img {
+    width: 32vw;
+    height: 15vw;
+    margin: 0;
+   }
+   .right-side img {
+       object-fit: cover;
+       height: 6vw;
+       width: 6vw;
+       margin: 2vw auto;
+   }
+   textarea{
+       font-size: 1.2vw;
+   }
+   .right-side .comment {
+       font-size: 1.3vw;
+   }
+}
+
+@media (max-width: 717px) {
+  .begin .top {
+        gap: 10px;
+    }
+    .pimage {
+        background: url("/colors-Rw\ 3.jfif");
+        padding: 0;
+        margin: -20px 0 0 0;
+        display: inline;
+        height: 90px;
+        width: 80vw;
+        opacity: 10%;
+        position: relative;
+    }
+    .opener {
+        color: black;
+        font-size: 40px;
+        cursor: pointer;
+        transition: all .5s ease;
+        width: fit-content;
+        height: fit-content;
+        display: inline;
+        padding: 0;
+        margin-left: 38px;
+    }
+    #fa, #fb, #fc, #fd,#fe, #ff, #fg {
+        display: inline;
+    }
+    
+     .img-right, .img-side {
+        opacity:20%;
+        width: 2.3em;
+        top: 0;
+        bottom: 0;
+        height: 210vw;
+    }
+     .nav-img {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+   
+    header {
+        display: grid;
+        gap: 2em;
+    }
+    nav ul {
+        background-image: url("/background-all");
+        object-fit: contain;
+        display: grid;
+        gap: 0em;
+        position: relative;
+        margin-top: 0px;
+        padding:  30px 20px 30px 20px;
+        transition: all .5s ease;
+        left: -100%;
+        width: 50vw;
+        height: 70vh;
+    }
+   
+    nav ul li{
+        margin: auto;
+        width: 27vw;
+    }
+    nav ul li a{
+        font-size: 4vw;
+    }
+   
+    .home {
+        display: inline;
+    }
+   
+    .below-nav {
+        box-shadow: none;
+        display: block;
+        opacity: 100%;
+        background: none;
+        margin: 0 auto;
+        width: 87vw;
+        height: 100vh;
+    }
+    .left-side {
+        height: 120vw;
+        width: 82vw;
+        margin: auto;
+    }
+    .left-side header {
+        display: grid;
+        font-size: 3.5vw;
+        text-align: center;
+        gap: 1vw;
+        width: 73vw;
+        height: fit-content;
+    } 
+   figure img {
+    width: 63vw;
+    height: 30vw;
+    margin: 0;
+   }
+    article {
+        font-size: 3.3vw;
+        margin-top: -2vw;
+        line-height: 4.5vw;
+        width: 79vw;
+    }
+    .like {
+        width: 43vw;
+        margin: 1vw auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    #input-1, #input-2 {
+        height: 4vw;
+        font-size: 3vw;
+    }
+    button {
+        margin: auto;
+        font-size: 4vw;
+        border: none;
+        background: none;
+    
+    }
+    .right-side {
+        width: 80vw;
+        height: 50vw;
+        margin: auto;
+    }
+   .right-side img {
+       object-fit: cover;
+       height: 11vw;
+       width: 11vw;
+   }
+   textarea{
+       font-size: 2.4vw;
+       height: 11vw;
+       width: 56vw;
+   }
+   .right-side .comment {
+    font-size: 2.8vw;
+    width: 56vw;
+   }
+    
+}
+
+
+
+

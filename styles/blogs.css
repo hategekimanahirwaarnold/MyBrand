@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+html {
+    margin: 0px;
+    padding: 0px;
+    min-width: 300px;
+}
+
+body {
+    font-family: 'Noto Serif', serif;
+    display: grid;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background: url("/background-all") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    min-width: 300px;
+}
+.img-side {
+    padding: 0;
+    background: url("/colors-Rw.jfif") repeat;
+    background-attachment: fixed;
+    background-size: 22%;
+    bottom: 0;
+    top: 0;
+    width: 3em;
+    position: absolute;
+    height: 100%;
+}
+
+.img-right {
+    margin: 0 0 0px 0;
+    padding: 0;
+    background: url("/colors-Rw.jfif") repeat;
+    background-attachment: fixed;
+    background-size: 22%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3em;
+    position: absolute;
+    height: 100%
+}
+.begin {
+    display: grid;
+    height: 100px;
+    margin: 0px 0 0 0;
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0em 0;
+    margin-top: 0em;
+}
+.nav-img {
+    background-image: url("/colors-Rw.jfif");
+    width: 100%;
+    height: 1.5em;
+    margin: 0px 0 0 0;
+    padding: 0;
+}
+.inTop {
+    display: flex;
+}
+.begin img {
+    display: none;
+}
+.opener {
+    font-size: 2.5em;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+#menu-icon {
+    cursor: pointer;
+}
+
+
+.logo {
+    text-decoration: none;
+    color: black;
+    font-size: 31px;
+    padding: 6px 20px;
+    margin: 0px 0px 0px 70px;
+    text-transform: uppercase;
+    transition: all .3s;
+}
+
+.logo:hover {
+    background-color: white;
+ /*   box-shadow: 3px -3px gray; */
+    border-radius: .4em;
+    color: gray;
+}
+.home {
+    font-size: 25px;
+    display: none;
+} 
+
+nav {
+    margin-right: 4em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+    margin: 0 30px 0 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    padding: 8px 9px;
+    border-radius: .3em;
+    transition: all .3s;
+}
+nav ul li a:hover {
+    background-color: white;
+    color: gray;
+}
+.active {
+    background-color: gray;
+    color: white;
+}
+#fa, #fb, #fc, #fd,#fe, #ff, #fg {
+    display: none;
+}
+.below-nav {
+    background-image: url("/A\ book\ 2-my\ brand\ \(2\).jfif");
+    background-repeat: no-repeat;
+    border-radius: 1vw;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 64vw;
+    height: 83vh;
+    display: flex;
+    margin: auto;
+    opacity: 90%;
+    justify-content: space-evenly;
+    gap: 6vw;
+}
+.left-side  {
+    display: grid;
+    gap: 1vw;
+    overflow: auto;
+    height: 81vh;
+    width: fit-content;
+    padding: 0;
+    padding-left: .3em;
+    text-align: center;
+}
+.blogs {
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+}
+.left-side .post {
+    height: 38vh;
+    width: 20vw;
+    background-color: #D9D9D9;
+    margin: 1em;
+    border-radius: .5vw;
+    box-shadow: -3px -4px gray;
+    display: grid;
+}
+.left-side .bottom {
+    height: 38vh;
+    width: 20vw;
+    background-color: #D9D9D9;
+    margin: auto auto auto auto;
+    border-radius: .5vw;
+    box-shadow: -3px -4px gray;
+    display: grid;
+    text-align: center;
+}
+.right-side {
+    width: 40vh;
+    display: grid;
+    gap: 1vw;
+    overflow-x: none;
+    overflow-y: auto;
+    height: 80vh;
+}
+ .right-side .top {
+    height: 38vh;
+    width: 20vw;
+    background-color: #D9D9D9;
+    margin: 1vw auto auto auto;
+    border-radius: .5vw;
+    box-shadow: -3px -4px gray;
+    display: grid;
+    text-align: center;
+}
+.right-side .bottom {
+    height: 38vh;
+    width: 20vw;
+    background-color: #D9D9D9;
+    margin: auto auto auto auto;
+    border-radius: .5vw;
+    box-shadow: -3px -4px gray;
+    display: grid;
+    text-align: center;
+}
+
+.below-nav header{
+    text-transform: uppercase;
+    margin: -.8vw auto auto auto;
+    font-size: 1.1vw;
+    font-weight: bold;
+}
+.cycle {
+    height: 12vh;
+    width: 18vw;
+    background: url("/datamanager.jfif");
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    margin: auto;
+    border: .2vw solid black;
+}
+.p, .p2, .below-nav a {
+    margin: 0vw 1vw;
+    font-size: 1vw;
+}
+.below-nav a {
+    margin: -1vw auto 0 auto;
+}
+.cycle-2 {
+    height: 12vh;
+    width: 18vw;
+    background: url("/datamanager.jfif");
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    margin: auto;
+    border: .2vw solid black;
+}
+.cycle-3 {
+    height: 12vh;
+    width: 18vw;
+    background: url("/datamanager.jfif");
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    margin: auto;
+    border: .2vw solid black;
+}
+.cycle-4 {
+    height: 12vh;
+    width: 18vw;
+    background: url("/datamanager.jfif");
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    margin: auto;
+    border: .2vw solid black;
+}
+
+@media (max-width: 1060px) {
+    nav ul {
+        gap: 1em;
+        margin-right: 0px;
+    }
+    nav ul li a {
+        font-size: 2.3vw;
+        padding: .3em;
+    }
+    .img-side, .img-right {
+        width: 5vw;
+    }
+    .logo {
+        font-size: 3.2vw;
+    }
+    .below-nav {
+        width: 75vw;
+    }
+    .left-side .post,.right-side .top{
+        height: 35vh;
+        width: 26vw;
+        margin: 2vw auto auto auto;
+    }
+    .left-side .bottom, .right-side .bottom {
+        height: 35vh;
+        width: 26vw;
+        margin: 0vw auto 2vw auto;
+    }
+    
+    .below-nav .below-nav header{
+        margin: -.8vw auto auto auto;
+        font-size: 1.4vw;
+    }
+    .cycle, .cycle-2, .cycle-3, .cycle-4 {
+        height: 10vh;
+        width: 24vw;
+    }
+    .p, .p2, .below-nav a {
+        margin: 0vw 1vw;
+        font-size: 1.17vw;
+    }
+    .below-nav a {
+        margin: -1vw auto 0 auto;
+    }
+    
+}
+
+@media (max-width: 717px) {
+  .begin .top {
+        gap: 10px;
+    }
+    .pimage {
+        background: url("/colors-Rw\ 3.jfif");
+        padding: 0;
+        margin: -20px 0 0 0;
+        display: inline;
+        height: 90px;
+        width: 80vw;
+        opacity: 10%;
+        position: relative;
+    }
+    .opener {
+        color: black;
+        font-size: 40px;
+        cursor: pointer;
+        transition: all .5s ease;
+        width: fit-content;
+        height: fit-content;
+        display: inline;
+        padding: 0;
+        margin-left: 38px;
+    }
+    #fa, #fb, #fc, #fd,#fe, #ff, #fg {
+        display: inline;
+    }
+    
+    .img-right, .img-side {
+        opacity:20%;
+        width: 2.3em;
+        top: 0;
+        bottom: 0;
+        background-attachment: fixed;
+    }
+     .nav-img {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+   
+    header {
+        display: grid;
+        gap: 2em;
+    }
+    nav ul {
+        background-image: url("/background-all");
+        object-fit: contain;
+        display: grid;
+        gap: 0em;
+        position: relative;
+        margin-top: 0px;
+        padding:  30px 20px 30px 20px;
+        transition: all .5s ease;
+        left: -100%;
+        width: 50vw;
+        height: 70vh;
+    }
+    
+    nav ul li{
+        margin: auto;
+        width: 27vw;
+    }
+    nav ul li a{
+        font-size: 4vw;
+    }
+   
+    .home {
+        display: inline;
+    }
+   
+    .below-nav {
+        display: grid;
+        gap: 6vw;
+        opacity: 100%;
+        background: none;
+        margin: auto;
+        width: 80vw;
+        overflow: auto;
+    }
+    .left-side, .right-side {
+        gap: 6vw;
+    }
+    .left-side .post,.right-side .top, .left-side .bottom, .right-side .bottom{
+        height: 67vw;
+        width: 63vw;
+        margin: auto;
+    }
+    .left-side .post {
+        margin-top: 1vw;
+    }
+    .below-nav .below-nav header{
+        margin: -.8vw auto auto auto;
+        font-size: 3.1vw;
+    }
+    .cycle, .cycle-2, .cycle-3, .cycle-4 {
+        height: 18vw;
+        width: 55vw;
+    }
+    .p, .p2, .below-nav a {
+        margin: 0vw 2vw;
+        font-size: 3vw;
+    }
+    .below-nav a {
+        margin: -1vw auto 0 auto;
+    }
+}

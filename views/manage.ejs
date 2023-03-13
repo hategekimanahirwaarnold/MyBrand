@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manage</title>
+    <link rel="stylesheet" href="/manage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check"  class="fa fa-bars" id="menu-icon"></label>
+    <nav>
+        <div class="logo">
+            <h1><a href="/admin/">HIRWA</a></h1>
+        </div>
+        <ul>
+            <li><a href="/create" ><i class="fa fa-th-large"></i> Blogs</a></li>
+            <li><a href="../query/query.html" class="active"><i class="fa fa-question-circle" ></i> Querries</a></li>
+            <li><a href="../accounts/alc.html" ><i class="fa fa-sign-in" ></i> Accounts</a></li>
+        </ul>
+    </nav>
+    <div class="aside-nav">  
+      <% if (blogs.length > 0) {%>
+        <% blogs.forEach(blog => {%>
+            <div class="query">
+                <div class="left">
+                    <h4><%= blog.title %></h4>
+                    <div class="inquiry">
+                      <p><%= blog.description %></p>
+                    </div>
+                </div>
+                <a class="adit" href="/edit/<%= blog._id %>"><div class="edit" data-doc="<%= blog._id %>" ><i class="fa fa-pencil"></i></div></a> 
+                <div class="delete" data-doc="<%= blog._id %>"><i class="fa fa-trash"></i></div>
+            </div>
+         <% }) %>
+      <% } else { %> 
+         <p>There are no blogs to display...</p>
+      <% } %> 
+       
+    </div>    
+    
+    <script>
+        const edit = document.getElementsByClassName("edit");
+        const trash = document.getElementsByClassName("delete");
+        var numEdit = edit.length;
+        var numTrash = trash.length;
+           
+            for (var i = 0; i < numEdit; i++) {
+                    edit[i].addEventListener('click', direct);
+                    const endpoint = `/blogs/${edit[i].dataset.doc}`;
+                        async function direct (e) {
+                        console.log(endpoint);
+                };
+            };
+
+            for (var i = 0; i < numTrash; i++) {
+                trash[i].addEventListener('click', remove);
+                const endpoint = `/blogs/${trash[i].dataset.doc}`;
+                    async function remove (e) {
+                    console.log(endpoint);
+
+                    fetch(endpoint, {
+                        method: 'DELETE'
+                    })
+                    .then ((response) => response.json())
+                    .then((data) => window.location.href= data.redirect)
+                    .catch(err => console.log(err))
+                    alert("You have deleted a blog!")
+                    }
+            };
+
+        for (var i = 0; i < numTrash; i++) {
+        //     trash[i].addEventListener('click', (e) => {
+
+        //     console.log(`${trash[i].dataset.doc}`);
+        //     // const endpoint= `/blogs/${trash[i].dataset.doc}`;
+
+        //      fetch(endpoint, {
+        //          method: 'DELETE'
+        //      })
+        //      .then((response) => response.json())
+        //      .then((data) => console.log(data))
+        //      .catch((err) => { console.log(err)
+        //      })
+        // });
+        trash[i].addEventListener('click', console.log('this is it'));
+        };
+
+        console.log(numEdit); 
+    </script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+    <link rel="stylesheet" href="/edit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check"  class="fa fa-bars" id="menu-icon"></label>
+    <nav>
+        <div class="logo">
+            <h1><a href="#">HIRWA</a></h1>
+        </div>
+        <ul>
+            <li><a href="/create.ejs" class="active"><i class="fa fa-th-large"></i> Blogs</a></li>
+            <li><a href="../query/query.html" ><i class="fa fa-question-circle" ></i> Querries</a></li>
+            <li><a href="../accounts/alc.html" ><i class="fa fa-sign-in" ></i> Accounts</a></li>
+        </ul>
+    </nav>
+    <form action="/edit/<%= blog._id %>" method="POST"> 
+        <div class="aside-nav">    
+            <div class="left">
+                <input type="text" value="<%= blog.title %>" placeholder="title" class="ttl" name="title" required>
+                <input type="date" placeholder="date" name="date">
+                <input type="file" placeholder="Select image" name="image">
+                <textarea type="text" placeholder="description" name="description" required><%= blog.description %></textarea>
+                <div class="articles">  
+                </div> 
+            </div>
+            <div class="middle">
+                <textarea type="text" placeholder="Article" class="artcl" name="body" required><%= blog.body %></textarea>
+                <button data-doc="<%= blog._id %>" class="submit-btn"><p>Save</p></button>
+            </div> 
+    </form> 
+    
+
+        <div class="right">
+            <h3>Comments</h3>
+            <div class="comments">
+                <div class="commenter">
+                    <h4>savion karamua</h4>
+                    <i class="fa fa-trash"></i>
+                </div>
+                <details>You are the best amazing person in the universe</details>
+
+                <div class="commenter">
+                    <h4>Karuretwa arsene</h4>
+                    <i class="fa fa-trash"></i>
+                </div>
+                <details>I will buy for you a big new car because of your diligence</details>  
+            </div>
+        </div>
+    </div>    
+    
+     <!-- <script src="/edit.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/home.js"></script>
+</body>
+</html>

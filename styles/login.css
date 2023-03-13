@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+html {
+    margin: 0px;
+    padding: 0px;
+    min-width: 300px;
+}
+
+body {
+    font-family: 'Noto Serif', serif;
+    display: block;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background: url("/background-all") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    min-width: 300px;
+}
+.img-side {
+    padding: 0;
+    background: url("/colors-Rw.jfif") repeat;
+    background-attachment: fixed;
+    background-size: 22%;
+    bottom: 0;
+    top: 0;
+    width: 3em;
+    position: absolute;
+    height: 100%;
+}
+
+.img-right {
+    margin: 0 0 0px 0;
+    padding: 0;
+    background: url("/colors-Rw.jfif") repeat;
+    background-attachment: fixed;
+    background-size: 22%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 3em;
+    position: absolute;
+    height: 100%
+}
+.begin {
+    display: grid;
+    height: 100px;
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0em 0;
+    margin-top: 0em;
+}
+.nav-img {
+    background-image: url("/colors-Rw.jfif");
+    width: 100%;
+    height: 1.5em;
+    margin: 0px 0 0 0;
+    padding: 0;
+}
+.inTop {
+    display: flex;
+}
+.begin img {
+    display: none;
+}
+.opener {
+    font-size: 2.5em;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+#menu-icon {
+    cursor: pointer;
+}
+
+.logo {
+    text-decoration: none;
+    color: black;
+    font-size: 31px;
+    padding: 6px 20px;
+    margin: 0px 0px 0px 70px;
+    text-transform: uppercase;
+    transition: all .3s;
+}
+
+.logo:hover {
+    background-color: white;
+ /*   box-shadow: 3px -3px gray; */
+    border-radius: .4em;
+    color: gray;
+}
+.home {
+    font-size: 25px;
+    display: none;
+} 
+
+nav {
+    margin-right: 4em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+    margin: 0 30px 0 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    padding: 8px 9px;
+    border-radius: .3em;
+    transition: all .3s;
+}
+nav ul li a:hover {
+    background-color: white;
+    color: gray;
+}
+.active {
+    background-color: gray;
+    color: white;
+}
+#fa, #fb, #fc, #fd,#fe, #ff, #fg {
+    display: none;
+}
+
+.below-nav {
+    width: 80%;
+    margin: 3.6em auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.left-side  {
+    display: grid;
+    justify-content: space-evenly;
+    margin: auto auto;
+    gap: 2.7vw;
+}
+input {
+    height: 3vw;
+    width: 20vw;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #7a7878;
+    border-radius: .5em;
+    font-size: .9vw;
+    outline: none;
+    padding: 0 10px;
+}
+
+h2 {
+    margin: auto;
+    font-size: 1.9vw;
+}
+
+ 
+button {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    border-radius: .4vw;
+    border: none;
+    background-color: gray;
+    width: 18vw;
+    height: 3vw;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+button:hover {
+    color: gray;
+    background-color: white;
+}
+button p {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.2vw;
+    margin: auto;
+}
+ img {
+    height: 3vw;
+    width: 3vw;
+    transition: transform .5s;
+}
+
+button:hover img {
+    transform: rotate(360deg);
+}
+
+.or {
+    margin: auto;
+    font-size: 1.5vw;
+}
+.right-side {
+    display: grid;
+    justify-content: space-evenly;
+    margin: auto auto;
+    gap: 3vw;
+}
+.admin {
+    margin: 0vw auto;
+    color: blue;
+    transition: all .3s;
+}
+.admin:hover {
+    color: rgb(97, 96, 96);
+}
+ 
+@media (max-width: 1060px) {
+   
+    nav ul {
+        gap: 1em;
+        margin-right: 0px;
+    }
+    nav ul li a {
+        font-size: 2.3vw;
+        padding: .3em;
+    }
+    .img-side, .img-right {
+        width: 5vw;
+    }
+    .logo {
+        font-size: 3.2vw;
+    }
+    .left-side  {
+        gap: 3vw;
+    }
+    input {
+        height: 4.2vw;
+        width: 25vw;
+        font-size: 1.3vw;
+    }
+    h2 {
+        margin: auto;
+        font-size: 2.5vw;
+    }
+    button {
+        width: 21vw;
+        height: 4.5vw;
+    }
+    button p {
+        font-size: 1.6vw;
+        margin: auto;
+    }
+     img {
+        height: 4vw;
+        width: 4vw;
+    }
+    .or {
+        margin: auto;
+        font-size: 1.7vw;
+    }
+    .right-side {
+        gap: 3.3vw;
+    }
+
+}
+ @media (max-width: 717px) {
+    #fa, #fb, #fc, #fd,#fe, #ff, #fg {
+        display: none;
+    }
+    
+    .img-right, .img-side {
+        opacity:20%;
+        top: 0;
+        width: 2.3em;
+        bottom: 0;
+        background-attachment: fixed;
+    }
+    .nav-img {
+        background-image: url("/colors-Rw\ 3.jfif");
+        margin: -37em 0 0 4.7em;
+        height: 6.5em;
+        width: 80vw;
+        opacity: 10%;
+        position: relative;
+    }
+    .logo {
+        display: none;
+    }
+   
+    header {
+        display: grid;
+        gap: 2em;
+    }
+    nav ul {
+        background-image: url("/background-all");
+        object-fit: contain;
+        display: grid;
+        gap: 0em;
+        position: relative;
+        margin-top: 0px;
+        padding:  30px 20px 30px 20px;
+        transition: all .5s ease;
+        left: -100%;
+        width: 50vw;
+        height: 70vh;
+    }
+    nav ul li{
+        margin: auto;
+        width: 27vw;
+    }
+    nav ul li a{
+        font-size: 4vw;
+    }
+   
+    .home {
+        display: inline;
+    }
+   
+    .below-nav {
+        display: grid;
+        margin: auto;
+        gap: 9vw;
+        width: 79vw;
+    }
+    .left-side  {
+        margin: auto;
+        gap: 6vw;
+        width: 78vw;
+    }
+    input {
+        height: 7.5vw;
+        width: 60vw;
+        font-size: 2.3vw;
+    }
+    h2 {
+        font-size: 5.1vw;
+    }
+    button {
+        width: 36vw;
+        height: 7.5vw;
+    }
+    button p {
+        font-family: 'Noto Serif', serif;
+        font-size: 3vw;
+        margin: auto;
+    }
+     img {
+        height: 7vw;
+        width: 7vw;
+    }
+    .or {
+        margin: auto;
+        font-size: 3.5vw;
+    }
+    .right-side {
+        margin: auto;
+        gap: 6vw;
+        width: 78vw;
+    }
+    .admin {
+        margin: 1em auto;
+        color: blue;
+    }
+   #fa {
+    display: inline;
+   }
+}

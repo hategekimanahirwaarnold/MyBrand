@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/blogs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="img-side"><p></p></div>
+    <div class="begin">   
+        <header>
+            <div class="inTop">
+                <div class="opener"><label for="check"  class="fa fa-bars" id="menu-icon"></label></div>
+                <a class="logo active" href="./index.html"><i id="fa" class="fa fa-home"></i>Hirwa</a>
+                <div class="pimage"></div>
+            </div>
+            <nav>
+                <ul class="navBar">
+                    <li class="home"><a href="/"><i id="fb"  class="fa fa-home"></i>HIRWA</a></li>
+                    <li><a href="/about" ><i id="fc"  class="fa fa-address-book" aria-hidden="true"></i> About Me</a></li>
+                    <li><a href="/skills"><i id="fd"  class="fa fa-lightbulb-o"></i>Skills</a></li>
+                    <li><a href="/portfolio"><i id="fe"  class="fa fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="/blogs" class="active"><i id="ff"  class="fa fa-th-large"></i>Blogs</a></li> 
+                    <li><a href="/contact"><i id="fg"  class="fa fa-usb"></i>Contact Me</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="nav-img"><p></p></div>
+    </div> 
+            <div class="below-nav">
+                <div class="left-side"> 
+                    <div class="blogs">
+
+                    <% if (blogs.length > 0) {%>
+                        <% blogs.forEach(blog => {%>
+                            <div class="post">
+                                <header><%= blog.title %> </header>
+                                <div class="cycle"></div>
+                                <p class="p"><%= blog.description %> </p>
+                                <a href="/blogs/<%= blog._id %>">Read more</a>
+                            </div>
+                            <% }) %>
+                        <% } else { %> 
+                            <p>There are no blogs to display...</p>
+                    <% } %> 
+                        
+                    </div>
+                    <div class="bottom">
+                        <header>INSIDE MATH CAMPS</header>
+                        <div class="cycle-2"></div>
+                        <p class="p">
+                            In the beginning I thought  that computer is all about knowing
+                            to open and close icons, knowing where various features are 
+                            located, or knowing the best versions of games, movies,
+                            music. However, I was wrong... 
+                        </p>
+                        <a href="">Read more</a>
+                    </div>
+               </div>      
+               <div class="right-side">
+                    <div class="top">
+                        <header>MATH PERSPECTIVE</header>
+                        <div class="cycle-3"></div>
+                        <p class="p">
+                            In the beginning I thought  that computer is all about knowing
+                            to open and close icons, knowing where various features are 
+                            located, or knowing the best versions of games, movies,
+                            music. However, I was wrong... 
+                        </p>
+                        <a href="">Read more</a>
+                    </div>
+                        <div class="bottom">
+                            <header>WHAT IS LIFE</header>
+                            <div class="cycle-4"></div>
+                        <p class="p">
+                            In the beginning I thought  that computer is all about knowing
+                            to open and close icons, knowing where various features are 
+                            located, or knowing the best versions of games, movies,
+                            music. However, I was wrong... 
+                        </p>
+                        <a href="">Read more</a>
+                        </div>
+                </div>
+            </div>
+    <div class="img-right"><p></p></div>
+    
+   <!-- <script src="./blogs.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/home.js"></script>
+</body>
+</html>

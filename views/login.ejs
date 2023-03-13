@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY BRAND</title>
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="img-side"><p></p></div>
+    <div class="begin">   
+        <header>
+            <div class="inTop">
+                <div class="opener"><label for="check"  class="fa fa-bars" id="menu-icon"></label></div>
+                <a class="logo active" href="./index.html"><i id="fa" class="fa fa-home"></i>Hirwa</a>
+                <div class="pimage"></div>
+            </div>
+            <nav>
+                <ul class="navBar">
+                    <li class="home"><a href="/"><i id="fb"  class="fa fa-home"></i>HIRWA</a></li>
+                    <li><a href="/about" ><i id="fc"  class="fa fa-address-book" aria-hidden="true"></i> About Me</a></li>
+                    <li><a href="/skills"><i id="fd"  class="fa fa-lightbulb-o"></i>Skills</a></li>
+                    <li><a href="/portfolio"><i id="fe"  class="fa fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="/blogs"><i id="ff"  class="fa fa-th-large"></i>Blogs</a></li> 
+                    <li><a href="/contact"><i id="fg"  class="fa fa-usb"></i>Contact Me</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="nav-img"><p></p></div>
+    </div> 
+            <div class="below-nav">
+                <div class="left-side">
+                   <h2>Sign UP</h2>
+                   <input type="text" id="signupName" placeholder="user name" name="user name" required>
+                   <input type="password" id="signupPass" placeholder="Enter Password/ 4 characters minimum" name="password" required>
+                   <input type="password" id="confirmPass" placeholder="Confirm Password" name="password" required>
+                   <button id="signupBtn"><p>Sign up</p></button>
+                   <p class="or">or</p>
+                   <button id="signupGgl"><p>Sign up with google</p> <img src="/google.png" alt=""></button>
+                </div>   
+                <div class="right-side">
+                    <h2>Login</h2>
+                    <input type="text" id="loginName" placeholder="user name" name="user name" required>
+                    <input type="password" id="loginPass" placeholder="Enter Password" name="password" required>
+                    <button id="loginBtn"><p>Login</p></button>
+                    <p class="or">or</p>
+                    <button id="loginGgl"><p>Login with google</p> <img src="/google.png" alt=""></button>
+                    <a class="admin" href="/admin/login">Admin</a>
+                </div>
+            </div>
+    <div class="img-right"><p></p></div>
+    
+   <script src="./login.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/home.js"></script>
+</body>
+</html>
