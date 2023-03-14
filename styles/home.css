@@ -10,6 +10,7 @@ html {
 body {
     font-family: 'Noto Serif', serif;
     font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
     display: grid;
     color: black;
     margin: 0;
@@ -291,7 +292,7 @@ i {
     }
     
  }
- #fa, #fb, #fc, #fd,#fe, #ff, #fg, .pimage, .pimage2 {
+ #fa, #fb, #fc, #fd,#fe, #ff, #fg, .pimage, .pimage2, .opener {
     display: none;
 }
   
@@ -302,10 +303,10 @@ i {
         background-attachment: fixed;
         width: 6vw;
     }
-     .nav-img {
+    .nav-img {
         display: none;
     }
-  .begin .top {
+   .begin .top {
         gap: 10px;
     }
     .pimage {

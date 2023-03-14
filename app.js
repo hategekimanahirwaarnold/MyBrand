@@ -2,63 +2,60 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
-
-//for swagger
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const swagger = require('./swagger');
 
 // express app
 const app = express();
 
-//connect to mongoDb
-const dbURI ='mongodb+srv://hirwa:arn01dbeHate@mybrand.yccl4uy.mongodb.net/my-brand?retryWrites=true&w=majority';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen('3016'))
+// import the swagger-ui-express middleware
+const swaggerUi = require('swagger-ui-express');
+
+// connect to mongoDb
+const dbURI = 'mongodb+srv://hirwa:arn01dbeHate@mybrand.yccl4uy.mongodb.net/my-brand?retryWrites=true&w=majority';
+mongoose
+  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => app.listen('3016'))
   .catch((err) => console.log(err));
 
 // register view engine
- app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
- //middleware & static files
- app.use(express.static('styles'));
- app.use(express.static('img'));
- app.use(express.static('js'));
- app.use(express.urlencoded({ extended: true }))
- app.use(morgan('dev'));
+// middleware & static files
+app.use(express.static('styles'));
+app.use(express.static('img'));
+app.use(express.static('js'));
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
-// connect yo mongoose
-// 
-  
+// connect to mongoose
 
-// //mongoose and mongo sandbox routes
-// app.get('/add-blog')
-
-
-
+// blog routes
+app.use(blogRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home');
+  res.render('home');
 });
 
 app.get('/about', (req, res) => {
-    res.render('about');
+  res.render('about');
 });
 
 app.get('/login', (req,res)=> {
-    res.render('login');
+  res.render('login');
 });
 
 app.get('/prof-exp', (req,res)=> {
-    res.render('prof-exp');
+  res.render('prof-exp');
 });
 
 app.get('/skills', (req,res)=> {
-    res.render('skills');
+  res.render('skills');
 });
 
 app.get('/portfolio', (req,res)=> {
-    res.render('portfolio');
+  res.render('portfolio');
 });
+
 app.get('/article', (req,res)=> {
   res.render('article');
 });
@@ -70,18 +67,18 @@ app.get('/contact', (req,res)=> {
 app.get('/create', (req,res)=> {
   res.render('create');
 });
+
 app.get('/edit', (req,res)=> {
   res.render('edit');
 });
-// blog routes
-app.use(blogRoutes);
 
+// Add Swagger
+const swaggerDocument = swagger(app);
+
+// set up the middleware to serve the Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // 404 page
 app.use((req, res) => {
-    res.status(404).render('404');
+  res.status(404).render('404');
 });
-
-
-
