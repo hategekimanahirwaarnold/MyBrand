@@ -259,21 +259,18 @@ i {
         margin-left: 55px;
     }
     nav ul li a {
-        font-size: 17px;
+        font-size: 19px;
         padding: 5px;
     } 
     .img-side, .img-right {
         width: 2.3em;
     }
-    .below-nav {
-        gap: 15px;
-    }
     nav ul {
         gap: 1em;
         margin-right: 0px;
     }
-    nav ul li a {
-         font-size: 19px; 
+    .below-nav {
+        gap: 15px;
     }
     .left-side {
         width: 320px;

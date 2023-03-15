@@ -3,9 +3,16 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
 const swagger = require('./swagger');
+const userRoutes = require('./routes/userRoutes')
 
-// express app
+// express appx
 const app = express();
+
+//users request
+app.use(express.json());
+
+
+
 
 // import the swagger-ui-express middleware
 const swaggerUi = require('swagger-ui-express');
@@ -27,10 +34,11 @@ app.use(express.static('js'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-// connect to mongoose
-
 // blog routes
 app.use(blogRoutes);
+
+//user routes
+app.use(userRoutes);
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -38,10 +46,6 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about');
-});
-
-app.get('/login', (req,res)=> {
-  res.render('login');
 });
 
 app.get('/prof-exp', (req,res)=> {

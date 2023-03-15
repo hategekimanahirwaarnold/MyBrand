@@ -2,7 +2,6 @@ const express = require('express');
 const Blog = require('../models/blog');
 const router = express.Router();
 
-
 // sort blogs on the manage page
 router.get('/manage', (req,res)=> {
    Blog.find().sort({ createdAt: -1 })
@@ -155,19 +154,19 @@ router.get('/api/blogs/:id', (req, res) => {
     });
 });
 
-// Create a new blog
-router.post('/api/blogs', (req, res) => {
-  const blog = new Blog(req.body);
+// create a new blog
+router.post('/blogs', (req, res) => {
+   const blog = new Blog(req.body);
 
-  blog.save()
-    .then((result) => {
-       console.log('Done');
-       res.status(201).json(result);
-    })
-    .catch ((err) => {
-      console.log(err);
-      res.status(500).json({ error: 'Internal server error' });
-    });
+   blog.save()
+       .then((result) => {
+           console.log('Done');
+           res.status(201).json({ message: 'Blog created successfully' });
+       })
+       .catch((err) => {
+           console.log(err)
+           res.status(500).json({ error: err });
+       });
 });
 
 
@@ -233,7 +232,10 @@ router.delete('/blogs/:id', (req, res) => {
  *       type: http
  *       scheme: bearer
  *       bearerFormat: JWT
- * 
+ */
+
+/** 
+ * @swagger
  * paths:
  *   /blogs:
  *     get:
@@ -341,5 +343,7 @@ router.delete('/blogs/:id', (req, res) => {
  *       '404':
  *         description: Blog post not found
  */
+
+ 
 
 module.exports = router;

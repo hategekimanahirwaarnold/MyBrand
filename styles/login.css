@@ -135,31 +135,30 @@ nav ul li a:hover {
 }
 
 .below-nav {
+    margin: 3.6em auto 10px auto;
+    height: fit-content;
+    display: grid;
     width: 80%;
-    margin: 3.6em auto 0 auto;
-    display: flex;
-    justify-content: space-between;
 }
 .left-side  {
     display: grid;
     justify-content: space-evenly;
     margin: auto auto;
-    gap: 2.7vw;
+    gap: 30px;
 }
 input {
-    height: 3vw;
-    width: 20vw;
+    height: 40px;
+    width: 300px;
     border: none;
     box-shadow: 2px 2px 2px 2px #7a7878;
-    border-radius: .5em;
-    font-size: .9vw;
+    border-radius: 4px;
+    font-size: 15px;
     outline: none;
     padding: 0 10px;
 }
 
 h2 {
     margin: auto;
-    font-size: 1.9vw;
 }
 
  
@@ -167,11 +166,11 @@ button {
     display: flex;
     justify-content: space-evenly;
     margin: auto;
-    border-radius: .4vw;
+    border-radius: 4px;
     border: none;
     background-color: gray;
-    width: 18vw;
-    height: 3vw;
+    width: 200px;
+    height: 40px;
     transition: all .5s;
     cursor: pointer;
 }
@@ -182,12 +181,12 @@ button:hover {
 }
 button p {
     font-family: 'Noto Serif', serif;
-    font-size: 1.2vw;
+    font-size: 15px;
     margin: auto;
 }
  img {
-    height: 3vw;
-    width: 3vw;
+    height: 40px;
+    width: 40px;
     transition: transform .5s;
 }
 
@@ -195,15 +194,15 @@ button:hover img {
     transform: rotate(360deg);
 }
 
-.or {
+.or, .have {
     margin: auto;
-    font-size: 1.5vw;
+    font-size: 15px;
 }
-.right-side {
+.right-side, .left-side {
     display: grid;
     justify-content: space-evenly;
-    margin: auto auto;
-    gap: 3vw;
+    margin: 0 auto auto auto;
+    gap: 40px;
 }
 .admin {
     margin: 0vw auto;
@@ -216,68 +215,74 @@ button:hover img {
  
 @media (max-width: 1060px) {
    
+    .logo {
+        margin-left: 55px;
+    }
+    nav ul li a {
+        font-size: 19px;
+        padding: 5px;
+    } 
+    .img-side, .img-right {
+        width: 2.3em;
+    }
     nav ul {
         gap: 1em;
         margin-right: 0px;
     }
-    nav ul li a {
-        font-size: 2.3vw;
-        padding: .3em;
-    }
-    .img-side, .img-right {
-        width: 5vw;
-    }
-    .logo {
-        font-size: 3.2vw;
-    }
-    .left-side  {
-        gap: 3vw;
-    }
-    input {
-        height: 4.2vw;
-        width: 25vw;
-        font-size: 1.3vw;
-    }
-    h2 {
-        margin: auto;
-        font-size: 2.5vw;
-    }
-    button {
-        width: 21vw;
-        height: 4.5vw;
-    }
-    button p {
-        font-size: 1.6vw;
-        margin: auto;
-    }
-     img {
-        height: 4vw;
-        width: 4vw;
-    }
-    .or {
-        margin: auto;
-        font-size: 1.7vw;
-    }
-    .right-side {
-        gap: 3.3vw;
-    }
-
 }
  @media (max-width: 717px) {
+    .img-right, .img-side {
+        opacity:20%;
+        background-attachment: fixed;
+        width: 6vw;
+    }
+    .nav-img {
+        display: none;
+    }
+   .begin .top {
+        gap: 10px;
+    }
+    .pimage {
+        background: url("/colors-Rw\ 3.jfif") repeat;
+        padding: 0;
+        background-position: top;
+        background-size: 25%;
+        background-attachment: fixed;
+        margin: -20px 0 0 0;
+        display: inline;
+        height: 60px;
+        width: 80vw;
+        opacity: 10%;
+    }
+    .pimage2 {
+        background: url("/colors-Rw\ 3.jfif") repeat;
+        padding: 0;
+        background-position: top;
+        background-size: 30%;
+        margin: 0 0 -30px 0;
+        bottom: 0;
+        display: inline;
+        height: 65px;
+        width: 100vw;
+        opacity: 10%;
+        position: relative;
+    }
+    .opener {
+        color: black;
+        font-size: 8vw;
+        cursor: pointer;
+        transition: all .5s ease;
+        width: fit-content;
+        height: fit-content;
+        display: inline;
+        padding: 0;
+        margin: -20px 0 0 6vw;
+        top: 0;
+    }
     #fa, #fb, #fc, #fd,#fe, #ff, #fg {
         display: inline;
     }
-    
-    .img-right, .img-side {
-        opacity:20%;
-        top: 0;
-        width: 2.3em;
-        bottom: 0;
-        background-attachment: fixed;
-    }
-   .nav-img {
-        display: none;
-    }
+   
     .logo {
         display: none;
     }
@@ -286,7 +291,7 @@ button:hover img {
         display: grid;
         gap: 2em;
     }
-  .navBar {
+    .navBar {
         background: url("/background-all") no-repeat;
         display: grid;
         gap: 0em;
@@ -311,54 +316,25 @@ button:hover img {
         font-size: 4vw;
         padding: auto;
     }
-   
+    
     .home {
         display: inline;
     }
-   
     .below-nav {
-        display: grid;
-        margin: auto;
-        gap: 9vw;
-        width: 79vw;
+        margin: -20px auto auto auto;
+        width: 80vw;
+        height: 600px;
     }
-    .left-side  {
-        margin: auto;
-        gap: 6vw;
-        width: 78vw;
+    .left-side, .right-side {
+        width: 80vw;
+        margin: 0;
     }
     input {
-        height: 7.5vw;
+        margin: auto;
         width: 60vw;
-        font-size: 2.3vw;
-    }
-    h2 {
-        font-size: 5.1vw;
     }
     button {
-        width: 36vw;
-        height: 7.5vw;
+        width: 100%;
     }
-    button p {
-        font-family: 'Noto Serif', serif;
-        font-size: 3vw;
-        margin: auto;
-    }
-     img {
-        height: 7vw;
-        width: 7vw;
-    }
-    .or {
-        margin: auto;
-        font-size: 3.5vw;
-    }
-    .right-side {
-        margin: auto;
-        gap: 6vw;
-        width: 78vw;
-    }
-    .admin {
-        margin: 1em auto;
-        color: blue;
-    }
+   
 }
