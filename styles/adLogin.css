@@ -1,0 +1,57 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: grid;
+    margin: auto;
+    gap: 0em;
+    background: url("/background-all") no-repeat;
+    background-position: fixed;
+    background-size: cover;
+    object-fit: cover;
+    min-height: 100vh;
+    width: 100%;
+}
+h1 {
+    margin: auto;
+}
+input {
+    height: 50px;
+    width: 300px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #7a7878;
+    border-radius: .5em;
+    font-size: 15px;
+    outline: none;
+    margin:0 auto;
+}
+ 
+button {
+    margin:0 auto;
+    border-radius: .4vw;
+    border: none;
+    background-color: gray;
+    width: 180px;
+    height: 50px;
+    transition: all .5s;
+}
+
+button:hover {
+    cursor: pointer;
+    color: gray;
+    background-color: white;
+}
+button p {
+    font-family: 'Playfair Display';
+    font-size: 18px;
+    margin: auto;
+}
+.back, p{
+    margin: auto;
+}
+
+.emailErr, .passErr {
+    margin: auto;
+    color: red;
+}

@@ -33,18 +33,20 @@
             <div class="below-nav">
                 <div class="right-side">
                     <h2>Login</h2>
-                    <input type="text" id="loginName" placeholder="user name" name="user name" required>
+                    <input type="text" id="loginName" placeholder="email" name="email" required>
+                    <div class="emailErr"></div>
                     <input type="password" id="loginPass" placeholder="Enter Password" name="password" required>
+                    <div class="passErr"></div>
                     <button id="loginBtn"><p>Login</p></button>
                     <p class="or">or</p>
                     <button id="loginGgl"><p>Login with google</p> <img src="/google.png" alt=""></button>
                     <p class="have">Don't have an account, <a href="/signup">Sign up</a>.</p>
-                    <a class="admin" href="/admin/login">Admin</a>
+                    <a class="admin" href="/adLogin">Admin</a>
                 </div>
             </div>
     <div class="img-right"><p></p></div>
     
-    <script src="./login.js"></script> 
+    <script src="/login.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="/home.js"></script>
 </body>

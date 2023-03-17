@@ -222,7 +222,7 @@ details {
     }
 }
 
-@media (max-width: 717px) {
+@media all and (max-width: 750px) {
     body {
         display: grid;
     }

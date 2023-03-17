@@ -1,13 +1,11 @@
-    const signupName = document.getElementById("signupName");
-    const signupPass = document.getElementById("signupPass");
-    const confirmPass = document.getElementById("confirmPass");
-    const signupBtn = document.getElementById("signupBtn");
-    const signupGgl = document.getElementById("signupGgl");
 
     const loginName = document.getElementById("loginName");
     const loginPass = document.getElementById("loginPass");
     const loginBtn = document.getElementById("loginBtn");
     const loginGgl = document.getElementById("loginGgl");
+
+    const emailError = document.querySelector(".emailErr");
+    const passwordError = document.querySelector(".passErr");
 
     async function createUser () {
     
@@ -50,7 +48,7 @@ function checkUser() {
     }
 };
 
-signupBtn.addEventListener('click', checkUser);
+//signupBtn.addEventListener('click', checkUser);
 
 
 
@@ -74,8 +72,42 @@ function checkInner() {
     }
 }
 
-loginBtn.addEventListener('click', checkInner );
+//loginBtn.addEventListener('click', checkInner );
  
 
 
-signupGgl.addEventListener('click', createUser)
+//signupGgl.addEventListener('click', createUser);
+
+
+ 
+loginBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    // reset errors
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    
+    //get values
+    let email = loginName.value.trim();
+    let password = loginPass.value.trim();
+  
+    try {
+        const res = await fetch('/adLogin', {
+            method: 'POST',
+            body: JSON.stringify({ email, password}),
+            headers: { 'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+            emailError.textContent = data.errors.email;
+            passwordError.textContent = data.errors.password;
+        }
+        if (data.user) {
+            alert("login was successful; you are welcome!");
+            location.assign('/')
+        }
+
+    } catch (err) {
+        console.log(err);
+    }
+});

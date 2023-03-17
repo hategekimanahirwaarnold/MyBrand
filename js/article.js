@@ -8,7 +8,7 @@ const rightSide = document.querySelector('.right-side');
 const body = document.querySelector('body');
 const commentSection = document.querySelector('.commentSection');
 
-likebtn.addEventListener('click',()=> {
+likebtn.addEventListener('click',()=>  {
     input1.value = parseInt(input1.value) + 1;
     input1.style.color = "green";
     likebtn.style.color = "green";

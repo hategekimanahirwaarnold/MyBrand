@@ -117,7 +117,7 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     color: black;
-    font-size: 25px;
+    font-size: 23px;
     padding: 8px 9px;
     border-radius: .3em;
     transition: all .3s;
@@ -212,7 +212,11 @@ button:hover img {
 .admin:hover {
     color: rgb(97, 96, 96);
 }
- 
+.emailErr, .passErr {
+    color: red;
+    margin: 0 auto;
+    text-align: center;
+}
 @media (max-width: 1060px) {
    
     .logo {
@@ -230,7 +234,7 @@ button:hover img {
         margin-right: 0px;
     }
 }
- @media (max-width: 717px) {
+ @media all and (max-width: 750px) {
     .img-right, .img-side {
         opacity:20%;
         background-attachment: fixed;
@@ -328,6 +332,7 @@ button:hover img {
     .left-side, .right-side {
         width: 80vw;
         margin: 0;
+        gap: 10px;
     }
     input {
         margin: auto;

@@ -115,7 +115,7 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     color: black;
-    font-size: 25px;
+    font-size: 23px;
     padding: 8px 9px;
     border-radius: .3em;
     transition: all .3s;
@@ -287,7 +287,7 @@ main {
     }
 }
 
-@media (max-width: 717px) {
+@media all and (max-width: 750px) {
     
   .begin .top {
         gap: 10px;

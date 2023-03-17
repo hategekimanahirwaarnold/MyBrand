@@ -3,13 +3,20 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
 const swagger = require('./swagger');
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+const queryRoutes = require('./routes/queryRoutes');
+const commentRoutes = require('./routes/commentRoutes');
+const adRoutes = require('./routes/adRoutes');
+const acRoutes = require('./routes/acRoutes');
+const cookieParser = require('cookie-parser');
+const { requireAuth, requireSwagger } = require('./midddleware/authmiddleware'); 
 
 // express appx
 const app = express();
 
 //users request
 app.use(express.json());
+app.use(cookieParser());
 
 
 
@@ -34,11 +41,18 @@ app.use(express.static('js'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-// blog routes
-app.use(blogRoutes);
-
-//user routes
-app.use(userRoutes);
+ // blogroutes
+  app.use(blogRoutes);
+ //query routes
+  app.use(queryRoutes);
+ //user routes
+  app.use(userRoutes);
+ //comment routes
+  app.use(commentRoutes);
+ //adRoutes routes
+  app.use(adRoutes);
+ //acRoutes routes
+  app.use(acRoutes);
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -68,13 +82,16 @@ app.get('/contact', (req,res)=> {
   res.render('contact');
 });
 
-app.get('/create', (req,res)=> {
+app.get('/create', requireSwagger,(req,res)=> {
   res.render('create');
 });
 
-app.get('/edit', (req,res)=> {
+app.get('/edit', requireAuth,(req,res)=> {
   res.render('edit');
 });
+
+
+
 
 // Add Swagger
 const swaggerDocument = swagger(app);
