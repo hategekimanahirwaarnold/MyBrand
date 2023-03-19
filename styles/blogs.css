@@ -142,23 +142,27 @@ nav ul li a:hover {
     background-size:cover;
     background-position: center;
     background-attachment: fixed;
-    width: 64vw;
-    height: 83vh;
+    object-fit: cover;
+    width: 900px;
+    height: 81vh;
     display: flex;
-    margin: auto;
-    opacity: 90%;
+    margin: 5px auto;
+    opacity: 80%;
+    height: 600px;
     justify-content: space-evenly;
-    gap: 6vw;
 }
 .left-side  {
-    display: grid;
-    gap: 1vw;
     overflow: auto;
-    height: 81vh;
-    width: fit-content;
+    height: 100%;
     padding: 0;
-    padding-left: .3em;
+    padding-left: 50px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0px;
+    width: 100%;
+    margin: auto;
 }
 .blogs {
     padding: 0;
@@ -167,104 +171,84 @@ nav ul li a:hover {
     height: fit-content;
 }
 .left-side .post {
-    height: 38vh;
-    width: 20vw;
+    height: 270px;
+    width: 320px;
     background-color: #D9D9D9;
     margin: 1em;
     border-radius: .5vw;
     box-shadow: -3px -4px gray;
-    display: grid;
-}
-.left-side .bottom {
-    height: 38vh;
-    width: 20vw;
-    background-color: #D9D9D9;
-    margin: auto auto auto auto;
-    border-radius: .5vw;
-    box-shadow: -3px -4px gray;
-    display: grid;
-    text-align: center;
-}
-.right-side {
-    width: 40vh;
-    display: grid;
-    gap: 1vw;
-    overflow-x: none;
-    overflow-y: auto;
-    height: 80vh;
-}
- .right-side .top {
-    height: 38vh;
-    width: 20vw;
-    background-color: #D9D9D9;
-    margin: 1vw auto auto auto;
-    border-radius: .5vw;
-    box-shadow: -3px -4px gray;
-    display: grid;
-    text-align: center;
-}
-.right-side .bottom {
-    height: 38vh;
-    width: 20vw;
-    background-color: #D9D9D9;
-    margin: auto auto auto auto;
-    border-radius: .5vw;
-    box-shadow: -3px -4px gray;
-    display: grid;
-    text-align: center;
+    display: block;
+    gap: 15px;
 }
 
+.post:nth-child(even) {
+    margin-left: 120px;
+}
+.post:nth-child(odd) {
+} 
 .below-nav header{
     text-transform: uppercase;
-    margin: -.8vw auto auto auto;
-    font-size: 1.1vw;
+    margin: -10px auto 10px auto;
+    font-size: 15px;
     font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
 }
 .cycle {
-    height: 12vh;
-    width: 18vw;
+    height: 90px;
+    width: 290px;
     background: url("/datamanager.jfif");
     background-size: cover;
     background-position: center;
+    object-fit: cover;
     padding: 0;
-    margin: auto;
+    margin: auto auto 10px auto;
     border: .2vw solid black;
 }
-.p, .p2, .below-nav a {
-    margin: 0vw 1vw;
-    font-size: 1vw;
+.p, .p2 {
+    margin: 0 auto;
+    height: 100px;
+    width: 290px;
+    font-size: 12px;
+    overflow-y: auto;
 }
 .below-nav a {
-    margin: -1vw auto 0 auto;
+    margin: 10px auto;
+    font-size: 12px;
+    color: blue;
 }
 .cycle-2 {
-    height: 12vh;
-    width: 18vw;
+    height: 90px;
+    width: 290px;
     background: url("/datamanager.jfif");
     background-size: cover;
     background-position: center;
+    object-fit: cover;
     padding: 0;
-    margin: auto;
+    margin: auto auto 10px auto;
     border: .2vw solid black;
 }
 .cycle-3 {
-    height: 12vh;
-    width: 18vw;
+    height: 90px;
+    width: 290px;
     background: url("/datamanager.jfif");
     background-size: cover;
     background-position: center;
+    object-fit: cover;
     padding: 0;
-    margin: auto;
+    margin: auto auto 10px auto;
     border: .2vw solid black;
 }
 .cycle-4 {
-    height: 12vh;
-    width: 18vw;
+    height: 90px;
+    width: 290px;
     background: url("/datamanager.jfif");
     background-size: cover;
     background-position: center;
+    object-fit: cover;
     padding: 0;
-    margin: auto;
+    margin: auto auto 10px auto;
     border: .2vw solid black;
 }
 
@@ -284,38 +268,31 @@ nav ul li a:hover {
         margin-right: 0px;
     }
     .below-nav {
-        width: 75vw;
+        width: 700px;
     }
-    .left-side .post,.right-side .top{
-        height: 35vh;
-        width: 26vw;
-        margin: 2vw auto auto auto;
+    .left-side .post{
+        width: 280px;
     }
-    .left-side .bottom, .right-side .bottom {
-        height: 35vh;
-        width: 26vw;
-        margin: 0vw auto 2vw auto;
+   
+    .post:nth-child(even) {
+        margin-left: 55px;
     }
-    
-    .below-nav .below-nav header{
-        margin: -.8vw auto auto auto;
-        font-size: 1.4vw;
+    .post:nth-child(odd) {
+        margin-left: 0;
+    }
+    .left-side {
+        padding: 0px 0 10px 37px;
     }
     .cycle, .cycle-2, .cycle-3, .cycle-4 {
-        height: 10vh;
-        width: 24vw;
+        width: 270px;
     }
-    .p, .p2, .below-nav a {
-        margin: 0vw 1vw;
-        font-size: 1.17vw;
-    }
-    .below-nav a {
-        margin: -1vw auto 0 auto;
+    .p, .p2 {
+        width: 270px;
     }
     
 }
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 780px) {
   .begin .top {
         gap: 10px;
     }
@@ -398,7 +375,7 @@ nav ul li a:hover {
         height: fit-content;
     }
     nav ul li a{
-        font-size: 4vw;
+        font-size: 5vw;
         padding: auto;
     }
    
@@ -407,38 +384,31 @@ nav ul li a:hover {
     }
    
     .below-nav {
+        text-align: center;
         display: grid;
-        gap: 6vw;
+        gap: 1em;
         opacity: 100%;
         background: none;
-        margin: auto;
-        width: 80vw;
+        width: 100vw;
+        margin: -40px 0 0 0;
+        padding: 0;
         overflow: auto;
+        height: 90vh;
     }
-    .left-side, .right-side {
+    .left-side {
         gap: 6vw;
+        margin: 0;
+        padding: 30px 0;
     }
-    .left-side .post,.right-side .top, .left-side .bottom, .right-side .bottom{
-        height: 67vw;
-        width: 63vw;
+    .left-side .post{
+        height: ;
+        width: 70vw;
         margin: auto;
-    }
-    .left-side .post {
-        margin-top: 1vw;
-    }
-    .below-nav .below-nav header{
-        margin: -.8vw auto auto auto;
-        font-size: 3.1vw;
     }
     .cycle, .cycle-2, .cycle-3, .cycle-4 {
-        height: 18vw;
-        width: 55vw;
+        width: 65vw;
     }
-    .p, .p2, .below-nav a {
-        margin: 0vw 2vw;
-        font-size: 3vw;
-    }
-    .below-nav a {
-        margin: -1vw auto 0 auto;
+    .p, .p2{
+        width: 65vw;
     }
 }

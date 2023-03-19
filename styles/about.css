@@ -38,6 +38,7 @@ body {
     background: url("/colors-Rw.jfif") repeat;
     background-attachment: fixed;
     background-size: 22%;
+    top: 0;
     bottom: 0;
     right: 0;
     width: 3em;
@@ -139,48 +140,51 @@ nav ul li a:hover {
     background-size:cover;
     background-position: center;
     background-attachment: fixed;
-    width: 64vw;
+    object-fit: cover;
+    width: 900px;
     height: 94%;
     display: flex;
-    margin: 0em 20% 1em 17vw;
+    margin: 30px auto;
     opacity: 80%;
+    height: 600px;
+    justify-content: space-evenly;
 }
 
 .left-side  { 
-    font-size: 1.6vw;
+    font-size: 24px;
     text-align: center;
-    padding: 0 0 0 5.2vw;
-    line-height: 5vh;
+    width: 420px;
+    line-height: 60px;
 }
 .left-side  .content { 
-    width: 22vw;
+    width: 100%;
 }
 .right-side {
-    padding: 0 0vw 0 0;
+    font-size: 22px;
+    text-align: center;
+    width: 420px;
 }  
 .right-side .content {
-    font-size: 1.5vw;
     text-align: center;
-    width: 16em;
-    margin-left: 9vw;
-    line-height: 4.5vh;
+    width: 100%;
+    line-height: 41px;
+}
+.right-but {
+    text-decoration: none;
     text-align: center;
-}
-.right-but p {
-    line-height: 13px;
-}
-button {
     float: right;
-    width: 5vw;
-    height: 6vh;
-    border: none;
     border-radius: .6vw;
     background-color: gray;
     color: rgb(2, 2, 2);
     cursor: pointer;
     transition: all .3;
+    padding: 8px 15px;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    font-size: 18px;
 }
-button:hover {
+.right-but:hover {
     color: rgb(255, 255, 255);
 }
 
@@ -194,26 +198,25 @@ button:hover {
         padding: 5px;
     } 
     .below-nav {
-        width: 80vw;
-        margin-left:10vw;
+        width: 700px;
     }
     .right-side .content {
-        font-size: 2.3vw;
-        width: 32vw;
-        margin-left: 14vw;
+        font-size: 20px;
+        line-height: 40px;
+        width: 350px;
     }
     .left-side  .content { 
-        width: 25vw;
-        font-size: 2.2vw;
+        font-size: 22px;
+        line-height: 55px;
+        width: 340px;
     }
     .logo {
         margin-left: 55px;
     }
-     .right-but {
-        border-radius: 1vw;
-        text-decoration: none;
-        width: 7.5vw;
-     }    
+    .right-but {
+        font-size: 18px;
+        padding: 7px 13px;
+    }   
      
     .img-side, .img-right {
         width: 2.3em;
@@ -221,12 +224,11 @@ button:hover {
 }
 
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 780px) {
     .img-right, .img-side {
         opacity:20%;
         background-attachment: fixed;
         width: 6vw;
-        border: dashed;
     }
     .begin .top {
         gap: 10px;
@@ -248,7 +250,7 @@ button:hover {
         padding: 0;
         background-position: top;
         background-size: 30%;
-        margin: 0 0 -30px 0;
+        margin: 0 0 0px 0px;
         bottom: 0;
         display: inline;
         height: 65px;
@@ -306,7 +308,7 @@ button:hover {
         height: fit-content;
     }
     nav ul li a{
-        font-size: 4vw;
+        font-size: 5vw;
         padding: auto;
     }
     .home {
@@ -314,19 +316,21 @@ button:hover {
     }
    
     .below-nav {
+        text-align: center;
         display: grid;
         gap: 1em;
         opacity: 100%;
         background: none;
-        border: dashed;
-        width: 80vw;
-        overflow: ;
+        width: 100vw;
+        margin: -40px 0 0 0;
+        padding: 0;
+        overflow: auto;
+        height: 90vh;
     }
-   
     .left-side .content {
         text-align: center;
-        width: 75vw;
-        margin: -1em 0 0 -4vw;
+        width: 100%;
+        margin: 0;
         gap: 0em;
         font-size: 4vw;
         line-height: 8vh;
@@ -334,21 +338,20 @@ button:hover {
     }
     .right-side .content {
         text-align: center;
-        width: 75vw;
-        margin: 0em 0 0 0vw;
+        width: 100%;
+        margin: 0;
         gap: 0em;
         font-size: 4vw;
         line-height: 8vh;
         padding: 0;
     }
-    .right-but p {
-        margin: 0;
+    .left-side, .right-side {
+        margin: auto;
+        padding: 0;
+        width: 85vw;
+        overflow: initial;
     }
-    .right-but {
-        width: 6em;
-        height: 3em;
-        font-size: 1rem;
-        margin: 0;
-        float: right;
+    body {
+        overflow: auto;
     }
 }

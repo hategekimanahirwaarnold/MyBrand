@@ -137,120 +137,114 @@ nav ul li a:hover {
   
 
 .below-nav {
-    margin: 0vw 0 3vw 0;
+    margin: 20px auto;
     display: flex;
-    margin-left: 0vw;
     text-align: center;
     justify-content: space-evenly;
-    gap: 0vw;
+    width: 90vw;
 }
 
- h2 {
-    margin: 2vw 0 3vw 0vw;
-    font-size: 1.5vw;
+h2 {
+    font-size: 20px;
+    margin: auto auto 55px auto;
 }
 
 .left-side  {
     display: block;
-    gap: 1em;
-    grid: 0em;
-    margin-right: 0vw;
+    width: 40vw;
 }
-.grides .lang {
-    display: grid;
+.lang {
+    margin: 30px auto 55px auto;
 }
 .top-left {
     display: flex;
+    justify-content: space-evenly;
 }
 .top-left .left {
-    margin: .5em 6vw 0 0vw;
-    height: 12.5vw;
-    width: 13vw;
+    height: 180px;
+    width: 200px;
     background-color: #D9D9D9;
     border-radius: .4vw;
     box-shadow: -3px -4px gray;
 }
 .top-left .right {
-    margin: .5em 0 0 1.5em;
-    height: 12.5vw;
-    width: 13vw;
+    height: 180px;
+    width: 200px;
     background-color: #D9D9D9;
     border-radius: .4vw;
     box-shadow: -3px -4px gray;
 }
 .cycle-1 {
     background: url("/web-dev.jfif");
-    margin: -2em 0 0 .38vw;
-    height: 12vw;
-    width: 12.2vw;
+    margin: -40px auto 0 auto;
+    height: 180px;
+    width: 185px;
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67%;
 }
-.p1 {
-    padding-top: .8em;
-    font-size: 1vw;
+.p1, .p2 {
+    margin-top: 10px;
+    font-size: 15px;
 }
 .cycle-2 {
     background: url("/data-man.jfif");
-    margin: -2em 0 0 .5em;
-    height: 12vw;
-    width: 12.2vw;
+    margin: -40px auto 0 auto;
+    height: 180px;
+    width: 185px;
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67%;
 }
-.p2 {
-    padding-top: .8em;
-    font-size: 1vw;
-}
 
 .lang-pro {
-    margin: -1em 0 0 0vw;
+    margin: -10px auto auto auto;
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
+    justify-content: space-between;
+    width: 70%;
+    height: fit-content;
     background-color: #D9D9D9;
     border-radius: .3em;
     box-shadow: -3px -4px gray;
+    padding: 0 50px;
 }
 .list-left, .list-right{
-    line-height: 3.1vw;
-    font-size: 1vw;
+    line-height: 40px;
+    font-size: 15px;
 }
 .right-side {
+    height: 600px;
     display: grid;
-    gap: 5em;
     text-align: center;
-    margin-top: 3em;
+    margin: auto 0;
+    width: 40vw;
 }
 .right-side h2 {
-    margin: 0vh 0 0vh 0vh;
-    font-size: 1.7vw;
+    margin: 0;
+    font-size: 20px;
     color: rgb(29, 26, 26);
 }
 .cv {
     display: grid;
     height: 250px;
-    width: 20vw;
+    width: 280px;
     background-color: #D9D9D9;
-    margin: -2em 0 0 4em;
+    margin: -30px auto auto auto;
     border-radius: .3em;
     box-shadow: -3px -4px gray;
 }
 
 .cycle-3 {
     height: 15em;
-    width: 17.7vw;
+    width: 250px;
     background: url("/cv.png");
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-    margin: -4em 0 0 1em;
+    margin: -4em auto 0 auto;
 }
 .cv button {
         border: none;
@@ -265,62 +259,27 @@ nav ul li a:hover {
 }
 
 @media (max-width: 1060px) {
+    .logo {
+        margin-left: 55px;
+    }
+    nav ul li a {
+        font-size: 19px;
+        padding: 5px;
+    } 
+    .img-side, .img-right {
+        width: 2.3em;
+    }
     nav ul {
         gap: 1em;
         margin-right: 0px;
     }
-    nav ul li a {
-        font-size: 2.3vw;
-        padding: .3em;
-    }
-  
-    .logo {
-        font-size: 3.2vw;
-    }
-    h2 {
-        font-size: 2vw;
-    }
-    .top-left .left, .top-left .right {
-        height: 15vw;
-        width: 17vw;
-    }
-    .cycle-1, .cycle-2 {
-        width: 15.6vw;
-        height: 14vw;
-    }
-    
-    .below-nav {
-        justify-content: none;
-    }
     .left-side {
-        width: 42.7vw;
-        margin-left: 10vw;
+        width: 50vw;
     }
-    
-    .p1, .p2 {
-        font-size: 1.4vw;
+    .below-nav {
+        width: 90vw;
     }
-    ul {
-        font-size: 1.3vw;
-    }
-    .right-side h2 {
-        margin-top: 0;
-        font-size: 2vw;
-        word-wrap: break-word;
-        max-width: 39vw;
-    }
-    .cv {
-        height: 25vw;
-        width: 27vw;
-        margin-right: 12vw;
-    }
-    .cycle-3 {
-        height: 24vw;
-        width: 23vw;
-    }
-    .right-side {
-        margin: 3.5vw 0vw 0 0;
-    }
+   
 }
 
 @media all and (max-width: 750px) {
@@ -405,7 +364,7 @@ nav ul li a:hover {
         height: fit-content;
     }
     nav ul li a{
-        font-size: 4vw;
+        font-size: 5vw;
         padding: auto;
     }
    
@@ -415,79 +374,40 @@ nav ul li a:hover {
    
     .below-nav {
         display: grid;
-        gap: 3vw;
+        gap: 20px;
         opacity: 100%;
         background: none;
-        margin: auto;
-        margin-left: 13vw;
+        margin: -40px auto auto auto;
+        height: 90vh;
+        overflow: auto;
     }
     .left-side {
         margin: auto;
-        gap: 3em;
+        gap: 20px;
         display: grid;
-    }
-    .grides {
-        text-align: center;
+        width: 85vw;
     }
     .top-left {
         display: grid;
-        gap: 6em;
-    }
-    h2 {
-        font-size: 3.7vw;
-        margin: 0 0 4em 0vw;
-        width: 50vw;
-    }
-    .lang h2 {
-        margin-bottom: 5vw;
-    }
-    
-    .top-left .left, .top-left .right {
-        height: 43vw;
-        width: 51vw;
-        margin: 0;
-    }
-    .cycle-1, .cycle-2 {
-        width: 43vw;
-        height: 45vw;
-        margin: -4em 0 0 3.8vw;
-    }
-    .left-side {
-        width: 42.7vw;
-        margin-left: 10vw;
-    }
-    
-    .p1, .p2 {
-        font-size: 3vw;
-    }
-    .lang-pro {
-        width: 60vw;
-        margin: 0 0 0 -4vw;
-        height: 45vw;
-    }
-    ul {
-        font-size: 3.6vw;
-        line-height: 7vw;
-    }
-    .right-side h2 {
-        font-size: 3.5vw;
-        width: 70vw;
-        margin: auto;
-    }
-    .cv {
-        height: 47vw;
-        width: 58vw;
-        margin: 0 9vw 0 6vw;
-    }
-    .cycle-3 {
-        width: 46vw;
-        height: 45vw;
-        margin: -4em 0 0 6vw;
+        gap: 70px;
     }
     .right-side {
-        margin: 3.5vw 0vw 6vw 0;
+        width: 85vw;
+        height: 550px;
     }
-    
+    .lang-pro {
+        padding: 0 5px;
+        width: 80vw;
+        justify-content: space-evenly;
+    }
+    .cycle-1, .cycle-2, .cycle-3 {
+        height: 240px;
+        width: 65vw;
+    }
+    .top-left .left, .top-left .right, .cv {
+        width: 70vw;
+        height: 260px;
+    }
 }
 
 

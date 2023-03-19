@@ -136,12 +136,14 @@ nav ul li a:hover {
 }
 
 .below-nav {
-    margin: 0vw 0 3vw 0;
+    margin: auto;
     display: flex;
     margin-left: 0vw;
     text-align: center;
     justify-content: space-evenly;
     gap: 0vw;
+    width: 100vw;
+    height: 600px;
 }
 
 .left-side  {
@@ -150,49 +152,49 @@ nav ul li a:hover {
     margin-right: 0;
 }
 .top {
-    margin: 2vw 0 0 0;
-    height: 16vw;
-    width: 16vw;
+    margin: 20px 0 0 0;
+    height: 240px;
+    width: 230px;
     background-color: #D9D9D9;
-    border-radius: .3vw;
+    border-radius: .3px;
     box-shadow: -3px -4px gray;
 }
 .bottom {
-    margin: -1.5vw 0 0 0;
-    height: 16vw;
-    width: 16vw;
+    margin: 0px 0 0 0;
+    height: 240px;
+    width: 230px;
     background-color: #D9D9D9;
-    border-radius: .3vw;
+    border-radius: .3px;
     box-shadow: -3px -4px gray;
 }
 .cycle {
     background: url("/datamanager.jfif");
-    height: 12vw;
-    width: 12vw;
+    height: 180px;
+    width: 190px;
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-    margin: 1vw 0 0 1.8vw;
+    margin: 10px auto;
 }
 .p1 {
-    padding-top: 0.8vw;
-    font-size: 1vw;
+    padding-top: 10px;
+    font-size: 15px;
 }
 .cycle-2 {
     background: url("/WhatsApp\ Image\ 2022-09-03\ at\ 10.05.49\ PM.jpeg");
-    height: 12vw;
-    width: 12vw;
+    height: 180px;
+    width: 190px;
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-    margin: 1vw 0 0 1.8vw;
+    margin: 10px auto;
 }
 
 .p2 {
-    padding-top: .8vw;
-    font-size: 1vw;
+    padding-top: 10px;
+    font-size: 15px;
 }
 
 .right-side {
@@ -202,23 +204,23 @@ nav ul li a:hover {
 }
 .cycle-3 {
     background: url("/mypic.jpg");
-    height: 12vw;
-    width: 12vw;
+    height: 180px;
+    width: 190px;
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-    margin: 1vw 0 0 1.8vw;
+    margin: 10px auto;
 }
 .cycle-4 {
     background: url("/myvideos.jfif");
-    height: 12vw;
-    width: 12vw;
+    height: 180px;
+    width: 190px;
     background-size: cover;
     background-position: center;
     padding: 0;
     border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-    margin: 1vw 0 0 1.8vw;
+    margin: 10px auto;
 }
 
 @media (max-width: 1060px) {
@@ -237,86 +239,9 @@ nav ul li a:hover {
         margin-right: 0px;
     }
     .below-nav {
-        margin: 0;
-        display: flex;
-        text-align: center;
-        justify-content: space-evenly;
-        gap: 0vw;
+        gap: 15px;
     }
     
-    .left-side  {
-        display: grid;
-        grid-gap: 0vw;
-        margin-right: 0;
-    }
-    .top {
-        margin: -2vw 0 0 0;
-        height: 22vw;
-        width: 22vw;
-        background-color: #D9D9D9;
-        border-radius: .3vw;
-        box-shadow: -3px -4px gray;
-    }
-    .bottom {
-        margin: -1.5vw 0 0 0;
-        height: 22vw;
-        width: 22vw;
-        background-color: #D9D9D9;
-        border-radius: .3vw;
-        box-shadow: -3px -4px gray;
-    }
-    .cycle {
-        background: url("/datamanager.jfif");
-        height: 16.5vw;
-        width: 17vw;
-        background-size: cover;
-        background-position: center;
-        padding: 0;
-        border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-        margin: 1vw 0 0 1.8vw;
-    }
-    .p1 {
-        padding-top: 1vw;
-        font-size: 1.5vw;
-    }
-    .cycle-2 {
-        background: url("/WhatsApp\ Image\ 2022-09-03\ at\ 10.05.49\ PM.jpeg");
-        height: 16.5vw;
-        width: 17vw;
-        background-size: cover;
-        background-position: center;
-        padding: 0;
-        border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-        margin: 1vw 0 0 1.8vw;
-    }
-    .p2 {
-        padding-top: 1vw;
-        font-size: 1.5vw;
-    }
-    
-    .right-side {
-        grid-gap: 0vw;
-    }
-    .cycle-3 {
-        background: url("/mypic.jpg");
-        height: 16.5vw;
-        width: 17vw;
-        background-size: cover;
-        background-position: center;
-        padding: 0;
-        border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-        margin: 1vw 0 0 1.8vw;
-    }
-    .cycle-4 {
-        background: url("/myvideos.jfif"); 
-        height: 16.5vw;
-        width: 17vw;
-        background-size: cover;
-        background-position: center;
-        padding: 0;
-        border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-        margin: 1vw 0 0 1.8vw;
-    }
 }
 
 @media all and (max-width: 750px) {
@@ -402,7 +327,7 @@ nav ul li a:hover {
         height: fit-content;
     }
     nav ul li a{
-        font-size: 4vw;
+        font-size: 5vw;
         padding: auto;
     }
    
@@ -415,31 +340,30 @@ nav ul li a:hover {
         gap: 6vw;
         opacity: 100%;
         background: none;
-        margin: 0;
-        margin-left: 13vw;
-        width: 74vw;
+        margin: -40px auto auto auto;
+        width: 100vw;
+        height: 90vh;
+        overflow: auto;
     }
     .left-side {
-        margin-top: 3vw;
     }
     .left-side, .right-side  {
         gap: 6vw;
     }
     .top, .bottom {
-        height: 67vw;
-        width: 63vw;
+        height: 400px;
+        width: 70vw;
         margin: auto;
     }
     .cycle, .cycle-2, .cycle-3, .cycle-4 {
-        height: 54vw;
-        width: 57vw;
+        height: 270px;
+        width: 65vw;
         padding: 0;
-        border-radius: 50% 50% 50% 50% / 33% 33% 67% 67% ;
-        margin: 2vw 2.8vw;
+        margin: 20px auto;
     }
     .p1, .p2 {
-        padding-top: 0vw;
-        font-size: 3.5vw;
+        padding-top: 20px;
+        font-size: ;
     }
     
 }

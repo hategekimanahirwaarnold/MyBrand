@@ -10,7 +10,6 @@ html {
 body {
     font-family: 'Noto Serif', serif;
     font-family: 'Playfair Display', serif;
-    font-family: 'Playfair Display', serif;
     display: grid;
     color: black;
     margin: 0;
@@ -377,7 +376,7 @@ i {
         height: fit-content;
     }
     nav ul li a{
-        font-size: 4vw;
+        font-size: 5vw;
         padding: auto;
     }
     
@@ -389,7 +388,9 @@ i {
         display: grid;
         gap: 30px;
         width: 85vw;
-        margin: -25px auto 20px auto;
+        margin: -40px auto 0 auto;
+        overflow: auto;
+        height: 90vh;
     }
     .right-side, .left-side {
         border-radius: 1.5vw;
