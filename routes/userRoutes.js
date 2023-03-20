@@ -3,6 +3,7 @@ const authCont = require('../controllers/authCont.js');
 const urouter = express.Router();
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
 
 urouter.get('/signup', authCont.signup_get);
 urouter.post('/signup', authCont.signup_post);
@@ -107,7 +108,7 @@ urouter.get('/Users', async (req, res) => {
       await user.save();
       const token = createToken(user._id);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-      res.status(200).json(user);
+      res.status(201).json(user);
     } catch (error) {
       const errors = handleErrors(error);
       res.status(404).json({ errors });
@@ -134,6 +135,12 @@ urouter.get('/Users', async (req, res) => {
   
 // Get a single user by ID
   urouter.get('/Users/:id', async (req, res) => {
+
+     // Check if id is a valid ObjectId
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      res.status(404).render('404');
+      return;
+    };
     try {
       const user = await User.findById(req.params.id);
       if (!user) {

@@ -1,6 +1,7 @@
 const express = require('express');
 const Comment = require('../models/comment');
 const commentCont = require('../controllers/commentCont');
+const mongoose = require('mongoose');
 
 const Crouter = express.Router();
 
@@ -17,14 +18,21 @@ Crouter.route('/Comments')
     try {
       const comment = new Comment(req.body);
       const savedComment = await comment.save();
-      res.json(savedComment);
+      res.status(201).json(savedComment);
     } catch (err) {
       res.status(500).send(err.message);
     }
   });
 
 Crouter.route('/Comments/:id')
+
   .get(async (req, res) => {
+
+    // Check if id is a valid ObjectId
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      res.status(404).render('404');
+      return;
+    };
     try {
       const comment = await Comment.findById(req.params.id);
       if (!comment) {
@@ -112,7 +120,7 @@ module.exports = Crouter
  *             schema:
  *               $ref: '#/components/schemas/comment'
  *       responses:
- *         '200':
+ *         '201':
  *           description: The comment was successfully sent
  *           content:
  *             application/json:

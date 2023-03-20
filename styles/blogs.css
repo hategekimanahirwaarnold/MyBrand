@@ -184,8 +184,6 @@ nav ul li a:hover {
 .post:nth-child(even) {
     margin-left: 120px;
 }
-.post:nth-child(odd) {
-} 
 .below-nav header{
     text-transform: uppercase;
     margin: -10px auto 10px auto;
@@ -401,7 +399,6 @@ nav ul li a:hover {
         padding: 30px 0;
     }
     .left-side .post{
-        height: ;
         width: 70vw;
         margin: auto;
     }

@@ -345,8 +345,6 @@ nav ul li a:hover {
         height: 90vh;
         overflow: auto;
     }
-    .left-side {
-    }
     .left-side, .right-side  {
         gap: 6vw;
     }
@@ -363,7 +361,6 @@ nav ul li a:hover {
     }
     .p1, .p2 {
         padding-top: 20px;
-        font-size: ;
     }
     
 }

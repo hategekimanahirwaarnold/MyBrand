@@ -19,16 +19,17 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-
-
 // import the swagger-ui-express middleware
 const swaggerUi = require('swagger-ui-express');
+
 
 // connect to mongoDb
 const dbURI = 'mongodb+srv://hirwa:arn01dbeHate@mybrand.yccl4uy.mongodb.net/my-brand?retryWrites=true&w=majority';
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen('3016'))
+  .then(() => app.listen('3016', () => {
+    console.log('Server is running on port 3016');
+  }))
   .catch((err) => console.log(err));
 
 // register view engine
@@ -103,3 +104,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use((req, res) => {
   res.status(404).render('404');
 });
+
+
+module.exports = app

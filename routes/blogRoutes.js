@@ -6,37 +6,36 @@ const blogCont = require('../controllers/blogCont');
 const { verifyToken } = require('../midddleware/adminMiddleware'); 
 
 
+
+
+// swagger crud operations
+
+// get json format of blogs
+router.get('/blogs/api', blogCont.getApiBlogs);
+// single blog
+router.get('/blogs/api/:id',blogCont.singleApiBlog);
+// post a new blog using swagger
+router.post('/blogs/api', blogCont.postApiNew);
+// Update a blog - using swagger
+router.put('/blogs/api/:id', blogCont.editSwagger);
+// Delete a blog
+router.delete('/blogs/api/:id', blogCont.deleteBlog);
+//delete a blog's api
+
+// website crud operations
+
 // sort blogs on the manage page
 router.get('/manage', requireAuth, blogCont.manageBlogs);
-
 // render all blogs - both website and swagger
 router.get('/blogs', blogCont.getBlogs);
-
 // post a new blog 
-router.post('/blogs', requireSwagger, blogCont.postNew);
+router.post('/blogs', requireSwagger, blogCont.postApiNew);
 // post required data before editing a blog
 router.post('/edit/:id', verifyToken, blogCont.findEditBlog);
 // edit a blog 
 router.get('/edit/:id', verifyToken, blogCont.editBlog);
-     
 // direct the user to the article - both website and swagger
 router.get('/blogs/:id',blogCont.singleBlog);
-
-// swagger crud operations
-
-// Update a blog - using swagger
-router.put('/blogs/:id', requireSwagger, blogCont.editSwagger);
-
-// Delete a blog
-router.delete('/blogs/:id', requireSwagger, blogCont.deleteBlog)
-
-// Route to generate a JWT for a user
-// router.post('/login', (req, res) => {
-//     const user = { id: 123, role: 'admin' }; // Replace with the user data that you retrieve from your database
-//     const token = jwt.sign(user, secretKey, { expiresIn: '1h' });
-//     res.json({ token });
-//   });
-
 
 /**
  * @swagger
@@ -78,7 +77,7 @@ router.delete('/blogs/:id', requireSwagger, blogCont.deleteBlog)
 /** 
  * @swagger
  * paths:
- *   /blogs:
+ *   /blogs/api:
  *     get:
  *       summary: Returns a list of blogs
  *       tags: [Blogs]
@@ -103,7 +102,7 @@ router.delete('/blogs/:id', requireSwagger, blogCont.deleteBlog)
  *             schema:
  *               $ref: '#/components/schemas/Blog'
  *       responses:
- *         '200':
+ *         '201':
  *           description: The blog was successfully created
  *           content:
  *             application/json:
@@ -115,7 +114,7 @@ router.delete('/blogs/:id', requireSwagger, blogCont.deleteBlog)
 
  /** 
   * @swagger
- * /blogs/{id}:
+ * /blogs/api/{id}:
  *   get:
  *     summary: Returns a single blog post by ID
  *     tags: [Blogs]

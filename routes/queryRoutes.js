@@ -1,6 +1,7 @@
 const express = require('express')
 const queryCont = require('../controllers/queryCont');
 const Query = require('../models/query');
+const mongoose = require('mongoose');
 
 const Qrouter = express.Router();
 
@@ -13,7 +14,7 @@ const Qrouter = express.Router();
 // });
 
 
-Qrouter.route('/query')
+Qrouter.route('/query/api')
   .get(async (req, res) => {
     try {
       const query = await Query.find();
@@ -26,18 +27,23 @@ Qrouter.route('/query')
     try {
       const query = new Query(req.body);
       const savedQuery = await query.save();
-      res.json(savedQuery);
+      res.status(201).json(savedQuery);
     } catch (err) {
       res.status(500).send(err.message);
     }
   });
 
-Qrouter.route('/query/:id')
+Qrouter.route('/query/api/:id')
   .get(async (req, res) => {
+    // Check if id is a valid ObjectId
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      res.status(404).render('404');
+      return;
+    };
     try {
       const query = await Query.findById(req.params.id);
       if (!query) {
-        return res.status(404).json({ message: 'Query not found' });
+        return res.status(404).render('404');
       }
       res.json(query);
     } catch (err) {
@@ -95,7 +101,7 @@ module.exports = Qrouter;
 /** 
  * @swagger
  * paths:
- *   /query:
+ *   /query/api:
  *     get:
  *       summary: Returns a list of Queries
  *       tags: [Queries]
@@ -120,7 +126,7 @@ module.exports = Qrouter;
  *             schema:
  *               $ref: '#/components/schemas/query'
  *       responses:
- *         '200':
+ *         '201':
  *           description: The Query was successfully sent
  *           content:
  *             application/json:
@@ -132,7 +138,7 @@ module.exports = Qrouter;
 
  /** 
   * @swagger
- * /query/{id}:
+ * /query/api/{id}:
  *   get:
  *     summary: Returns a single Query by ID
  *     tags: [Queries]
