@@ -2,8 +2,6 @@ const request = require('supertest');
 const app = require('../app');
 
 
-
-
 describe('Blogs API', () => {
    it('GET /blogs/api --> array blogs', () => {
       return request(app)
@@ -103,11 +101,7 @@ describe('Blogs API', () => {
       expect(getResponse.status).toBe(404);
    }, 10000);
 
-})
-
-// it('DELETE /blogs/api/id --> array blogs', () => { });
-
-
+});
 
 describe('Users API', () => {
    it('GET /users --> array blogs', () => {
