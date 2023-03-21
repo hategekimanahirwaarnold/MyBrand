@@ -10,10 +10,12 @@ const submitQuery = async (e) => {
         email: contEmail.value,
         message: query.value,
     };
-    await fetch('http://localhost:3000/queries', {
+    await fetch('/query/api', {
         method: 'POST',
         body: JSON.stringify(doc),
         headers:{ 'content-type': 'application/json' }
     });
+    alert("Your message was succussfully sent; thank you for reaching on us!");
+    location.reload();
 };
 submitBtn.addEventListener('click', submitQuery)

@@ -31,14 +31,15 @@ async function submitComment(e) {
   e.preventDefault();
   
   const doc = {
-      name: "",
-      comment: wrtnComment.value
+      email: "h@gmail.com",
+      message: wrtnComment.value
   };
-  await fetch('http://localhost:3000/comments', {
+  await fetch('/comments', {
       method: 'POST',
       body: JSON.stringify(doc),
       headers:{ 'content-type': 'application/json' }
-  })
+  });
+  location.reload();
 };
 
 function addComment(e) {
@@ -66,7 +67,7 @@ function addComment(e) {
 
 const renderComments = async (e) => {
   e.preventDefault;
-  let uri = 'http://localhost:3000/comments';
+  let uri = '/comments';
 
   const res = await fetch(uri);
   const posts = await res.json();
@@ -77,7 +78,7 @@ const renderComments = async (e) => {
    <div class="second">
       <img src="/comment.png" alt="">
       <div class="comment">
-          <p> ${post.comment} </p> 
+          <p> ${post.message} </p> 
       </div> 
     </div>
      `

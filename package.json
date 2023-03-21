@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "modules.js",
   "scripts": {
-    "test": "jest --detectOpenHandles"
+    "start": "nodemon app",
+    "test": "jest --detectOpenHandles && exit 0"
   },
   "author": "",
   "license": "ISC",
