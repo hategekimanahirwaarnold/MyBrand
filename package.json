@@ -4,7 +4,7 @@
   "main": "modules.js",
   "scripts": {
     "start": "nodemon app",
-    "test": "jest --forceExit"
+    "test": "jest --forceExit --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
