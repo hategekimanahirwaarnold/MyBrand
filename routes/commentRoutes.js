@@ -2,11 +2,12 @@ const express = require('express');
 const Comment = require('../models/comment');
 const commentCont = require('../controllers/commentCont');
 const mongoose = require('mongoose');
+const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
 
 const Crouter = express.Router();
 
 Crouter.route('/Comments')
-  .get(async (req, res) => {
+  .get(requireSwagger, async (req, res) => {
     try {
       const comments = await Comment.find();
       res.json(comments);
@@ -14,7 +15,7 @@ Crouter.route('/Comments')
       res.status(500).send(err.message);
     }
   })
-  .post(async (req, res) => {
+  .post( async (req, res) => {
     try {
       const comment = new Comment(req.body);
       const savedComment = await comment.save();
@@ -26,7 +27,7 @@ Crouter.route('/Comments')
 
 Crouter.route('/Comments/:id')
 
-  .get(async (req, res) => {
+  .get(requireSwagger, async (req, res) => {
 
     // Check if id is a valid ObjectId
     if (!mongoose.isValidObjectId(req.params.id)) {
@@ -43,7 +44,7 @@ Crouter.route('/Comments/:id')
       res.status(500).send(err.message);
     }
   })
-  .delete(async (req, res) => {
+  .delete(requireSwagger, async (req, res) => {
     try {
       const comment = await Comment.findByIdAndDelete(req.params.id);
       if (!comment) {

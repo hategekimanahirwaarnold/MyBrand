@@ -2,6 +2,7 @@ const express = require('express')
 const queryCont = require('../controllers/queryCont');
 const Query = require('../models/query');
 const mongoose = require('mongoose');
+const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
 
 const Qrouter = express.Router();
 
@@ -15,7 +16,7 @@ const Qrouter = express.Router();
 
 
 Qrouter.route('/query/api')
-  .get(async (req, res) => {
+  .get(requireSwagger, async (req, res) => {
     try {
       const query = await Query.find();
       res.json(query);
@@ -23,7 +24,7 @@ Qrouter.route('/query/api')
       res.status(500).send(err.message);
     }
   })
-  .post(async (req, res) => {
+  .post( async (req, res) => {
     try {
       const query = new Query(req.body);
       const savedQuery = await query.save();
@@ -34,7 +35,7 @@ Qrouter.route('/query/api')
   });
 
 Qrouter.route('/query/api/:id')
-  .get(async (req, res) => {
+  .get(requireSwagger, async (req, res) => {
     // Check if id is a valid ObjectId
     if (!mongoose.isValidObjectId(req.params.id)) {
       res.status(404).render('404');
@@ -50,7 +51,7 @@ Qrouter.route('/query/api/:id')
       res.status(500).send(err.message);
     }
   })
-  .delete(async (req, res) => {
+  .delete(requireSwagger, async (req, res) => {
     try {
       const query = await Query.findByIdAndDelete(req.params.id);
       if (!query) {

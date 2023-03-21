@@ -25,15 +25,15 @@ router.delete('/blogs/api/:id', requireSwagger,blogCont.deleteBlog);
 // website crud operations
 
 // sort blogs on the manage page
-router.get('/manage', requireAuth, blogCont.manageBlogs);
+router.get('/manage', requireSwagger, blogCont.manageBlogs);
 // render all blogs - both website and swagger
 router.get('/blogs', blogCont.getBlogs);
 // post a new blog 
 router.post('/blogs', requireSwagger, blogCont.postApiNew);
 // post required data before editing a blog
-router.post('/edit/:id', verifyToken, blogCont.findEditBlog);
+router.post('/edit/:id', requireSwagger, blogCont.findEditBlog);
 // edit a blog 
-router.get('/edit/:id', verifyToken, blogCont.editBlog);
+router.get('/edit/:id', requireSwagger, blogCont.editBlog);
 // direct the user to the article - both website and swagger
 router.get('/blogs/:id',blogCont.singleBlog);
 
