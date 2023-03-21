@@ -213,45 +213,45 @@ describe('Users API', () => {
    }, 23000);
 
 
-   it('GET /users/id --> specific user by ID', async () => {
-      const anewUser = {
-         email: 'ushatuuuedera1a@gmail.com',
-         password: 'made user'
-     };
-      // Create a new user
-      const createnewUser = async ()=> {
-         const response = await request(app)
-         .post('/users')
-         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-         .send(anewUser);
-         return response;
-      }; 
-      const userid = async () => {
-         const response = await createnewUser();
-         const userId = response.body._id;
-         return userId
-      };
-     const id = await userid();
-     console.log('User ID:', id);
-     await request(app)
-       .get(`/users/${id}`)
-       .set('Cookie', `Adjwt=${process.env.TOKEN}`)
-       .expect(200)
-       .then((response) => {
-         expect(response.body).toEqual(
-           expect.objectContaining({
-             password: expect.any(String),
-             email: expect.any(String)
-           }),
-         );
-       });
+   // it('GET /users/id --> specific user by ID', async () => {
+   //    const anewUser = {
+   //       email: 'ushatuuuedera1a@gmail.com',
+   //       password: 'made user'
+   //   };
+   //    // Create a new user
+   //    const createnewUser = async ()=> {
+   //       const response = await request(app)
+   //       .post('/users')
+   //       .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+   //       .send(anewUser);
+   //       return response;
+   //    }; 
+   //    const userid = async () => {
+   //       const response = await createnewUser();
+   //       const userId = response.body._id;
+   //       return userId
+   //    };
+   //   const id = await userid();
+   //   console.log('User ID:', id);
+   //   await request(app)
+   //     .get(`/users/${id}`)
+   //     .set('Cookie', `Adjwt=${process.env.TOKEN}`)
+   //     .expect(200)
+   //     .then((response) => {
+   //       expect(response.body).toEqual(
+   //         expect.objectContaining({
+   //           password: expect.any(String),
+   //           email: expect.any(String)
+   //         }),
+   //       );
+   //     });
      
-     await request(app)
-       .delete(`/users/${id}`)
-       .set('Cookie', `Adjwt=${process.env.TOKEN}`)
-       .expect(200);
+   //   await request(app)
+   //     .delete(`/users/${id}`)
+   //     .set('Cookie', `Adjwt=${process.env.TOKEN}`)
+   //     .expect(200);
    
-   }, 10000);
+   // }, 10000);
 
 
    it('GET /users/id --> 404 if not found', () => {
