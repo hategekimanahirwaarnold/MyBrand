@@ -224,30 +224,31 @@ describe('Users API', () => {
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .send(anewUser);
          return response;
-     }; 
-     const userid = async () => {
-        const response = await createnewUser();
-        const userId = response.body._id;
-        return userId
+      }; 
+      const userid = async () => {
+         const response = await createnewUser();
+         const userId = response.body._id;
+         return userId
       };
+     const id = await userid();
+     console.log('User ID:', id);
+     await request(app)
+       .get(`/users/${id}`)
+       .set('Cookie', `Adjwt=${process.env.TOKEN}`)
+       .expect(200)
+       .then((response) => {
+         expect(response.body).toEqual(
+           expect.objectContaining({
+             password: expect.any(String),
+             email: expect.any(String)
+           }),
+         );
+       });
      
-      const id = await userid(); // Call the userid function and await its result
-      return request(app)
-         .get(`/users/${id}`)
-         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-//.expect('Content-Type', /json/)
-         .expect(200)
-         .then((response) => {
-            expect(response.body).toEqual(
-               expect.objectContaining({
-                  password: expect.any(String),
-                  email: expect.any(String)
-               }),
-            );
-         });
-         await request(app)
-         .delete(`/users/${id}`)
-         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+     await request(app)
+       .delete(`/users/${id}`)
+       .set('Cookie', `Adjwt=${process.env.TOKEN}`)
+       .expect(200);
    
    }, 10000);
 
@@ -257,22 +258,6 @@ describe('Users API', () => {
       .get('/users/33333').expect(404)
       .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
    });
-
-   // it('POST /users --> create a user', () => {
-   //    return request(app).post('/users').send({
-   //       email: '45usqer@gmail.com',
-   //       password: 'made pass'
-   //    })
-   // // .expect('Content-Type', /json/)
-   //    .expect(201)
-   //    .then((response) => {
-   //       expect(response.body).toEqual(
-   //          expect.objectContaining({
-   //             email: '45usqer@gmail.com'
-   //          }),
-   //       );
-   //    });
-   // });
 
 
    it('DELETE /users/:id --> delete a user', async () => {
@@ -352,7 +337,7 @@ describe('comments API', () => {
             }),
          );
       });
-   });
+   }, 6000);
 
 
    it('DELETE /comments/:id --> delete a user', async () => {
