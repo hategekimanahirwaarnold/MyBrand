@@ -33,7 +33,7 @@ const handleErrors = (err) => {
 };
 const maxAge = 7 * 24 * 60 * 60;
 const createToken = (id) => {
-    return Adjwt.sign({ id }, 'admin secret', {
+    return Adjwt.sign({ id }, process.env.SECRET, {
         expiresIn: maxAge
     })
 };

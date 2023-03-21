@@ -4,6 +4,7 @@ const urouter = express.Router();
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
 
 urouter.get('/signup', authCont.signup_get);
 urouter.post('/signup', authCont.signup_post);
@@ -92,7 +93,7 @@ urouter.post('/login', async (req, res) => {
   
  
 
-urouter.get('/Users', async (req, res) => {
+urouter.get('/Users', requireSwagger, async (req, res) => {
     try {
       const users = await User.find({});
       res.status(200).json(users);
@@ -134,7 +135,7 @@ urouter.get('/Users', async (req, res) => {
   });
   
 // Get a single user by ID
-  urouter.get('/Users/:id', async (req, res) => {
+  urouter.get('/Users/:id', requireSwagger, async (req, res) => {
 
      // Check if id is a valid ObjectId
     if (!mongoose.isValidObjectId(req.params.id)) {
@@ -154,15 +155,14 @@ urouter.get('/Users', async (req, res) => {
   });
   
   // Delete an existing user
-   urouter.delete('/Users/:id', async (req, res) => {
+   urouter.delete('/Users/:id', requireSwagger, async (req, res) => {
     try {
       const user = await User.findByIdAndDelete(req.params.id);
       if (!user) {
         return res.status(404).json({ message: 'User not found' });
       }
       res.status(200).json(user);
-    } catch (err) {
-      console.error(err.message);
+     } catch (err) {
       res.status(500).send('Server Error');
     }
   });

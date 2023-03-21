@@ -6,7 +6,7 @@ const requireAuth = (req, res, next) => {
 
     //check json web token exists & is verified
     if (token) {
-       jwt.verify(token, 'hirwa secret', (err, decodedToken) => {
+       jwt.verify(token, process.env.USECRET, (err, decodedToken) => {
          if (err) {
             const acceptHeader = req.get('Accept');
             if (acceptHeader === 'application/json') {
@@ -29,7 +29,7 @@ const requireSwagger = (req, res, next) => {
 
    //check json web token exists & is verified
    if (token) {
-      Adjwt.verify(token, 'admin secret', (err, decodedToken) => {
+      Adjwt.verify(token, process.env.SECRET, (err, decodedToken) => {
          next()
       })
    } else {

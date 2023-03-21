@@ -15,11 +15,11 @@ router.get('/blogs/api', blogCont.getApiBlogs);
 // single blog
 router.get('/blogs/api/:id',blogCont.singleApiBlog);
 // post a new blog using swagger
-router.post('/blogs/api', blogCont.postApiNew);
+router.post('/blogs/api', requireSwagger, blogCont.postApiNew);
 // Update a blog - using swagger
-router.put('/blogs/api/:id', blogCont.editSwagger);
+router.put('/blogs/api/:id', requireSwagger,blogCont.editSwagger);
 // Delete a blog
-router.delete('/blogs/api/:id', blogCont.deleteBlog);
+router.delete('/blogs/api/:id', requireSwagger,blogCont.deleteBlog);
 //delete a blog's api
 
 // website crud operations

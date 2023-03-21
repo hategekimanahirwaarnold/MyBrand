@@ -1,3 +1,5 @@
+process.env.NODE_ENV_CUSTOM = 'test';
+
 const request = require('supertest');
 const app = require('../app');
 
@@ -20,10 +22,10 @@ describe('Blogs API', () => {
          });
    }, 25000);
 
-
+// single blog
    it('GET /blogs/api/id --> specific blog by ID', () => {
       return request(app)
-         .get('/blogs/api/6417fb0c8c17d977e684c2f2')
+         .get('/blogs/api/6418c8fc14b8979d57c2d4f9')
          .expect('Content-Type', /json/)
          .expect(200)
          .then((response) => {
@@ -41,27 +43,33 @@ describe('Blogs API', () => {
    it('GET /blogs/api/id --> 404 if not found', () => {
       return request(app).get('/blogs/api/33333').expect(404);
    });
-
+ 
    it('POST /blogs/api --> create a blog', () => {
-      return request(app).post('/blogs/api').send({
-         title: 'blog created',
+      return request(app)
+      .post('/blogs/api')
+      .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+      .send({
+         title: 'to test new blog created',
          description: 'made desc',
          body: 'made body',
       })
-      .expect('Content-Type', /json/).expect(201)
+      .expect('Content-Type', /json/)
+      .expect(201)
       .then((response) => {
          expect(response.body).toEqual(
             expect.objectContaining({
-               title: 'blog created',
-               description: 'made desc',
-               body: 'made body',
-            }),
+            title: 'to test new blog created',
+            description: 'made desc',
+            body: 'made body',
+            })
          );
       });
    });
 
     it('UPDATE /blogs/api/id --> edit a blogs',() => {
-      return request(app).put('/blogs/api/641858736fa8bb3597302117').send({
+      return request(app).put('/blogs/api/6418c240aa5e75dd169644ba')
+      .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+      .send({
          title: 'blog updated',
          description: 'made it desc',
          body: 'made body',
@@ -87,18 +95,20 @@ describe('Blogs API', () => {
       };
       const createResponse = await request(app)
          .post('/blogs/api')
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .send(newBlog);
       const blogId = createResponse.body._id;
-   
+      
       // Delete the blog
       const deleteResponse = await request(app)
-         .delete(`/blogs/api/${blogId}`);
-      //expect(deleteResponse.status).toBe(200);
+         .delete(`/blogs/api/${blogId}`)
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+         //expect(deleteResponse.status).toBe(200);
    
       // Try to get the deleted blog and expect a 404 error
       const getResponse = await request(app)
          .get(`/blogs/api/${blogId}`);
-      expect(getResponse.status).toBe(404);
+         expect(getResponse.status).toBe(404);
    }, 10000);
 
 });
@@ -107,6 +117,7 @@ describe('Users API', () => {
    it('GET /users --> array blogs', () => {
       return request(app)
          .get('/users')
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .expect('Content-Type', /json/)
          .expect(200)
          .then((response) => {
@@ -123,7 +134,8 @@ describe('Users API', () => {
 
    it('GET /users/id --> specific blog by ID', () => {
       return request(app)
-         .get('/users/64131748a4ff5160f961645e')
+         .get('/users/6418c4addb4e38ee0f127093')
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .expect('Content-Type', /json/)
          .expect(200)
          .then((response) => {
@@ -138,7 +150,9 @@ describe('Users API', () => {
 
 
    it('GET /users/id --> 404 if not found', () => {
-      return request(app).get('/users/33333').expect(404);
+      return request(app)
+      .get('/users/33333').expect(404)
+      .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
    });
 
    // it('POST /users --> create a user', () => {
@@ -146,7 +160,7 @@ describe('Users API', () => {
    //       email: '45usqer@gmail.com',
    //       password: 'made pass'
    //    })
-   //   // .expect('Content-Type', /json/)
+   // // .expect('Content-Type', /json/)
    //    .expect(201)
    //    .then((response) => {
    //       expect(response.body).toEqual(
@@ -166,17 +180,20 @@ describe('Users API', () => {
       };
       const createResponse = await request(app)
          .post('/users')
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .send(newUser);
       const userId = createResponse.body._id;
    
       // Delete the blog
       const deleteResponse = await request(app)
-         .delete(`/users/${userId}`);
+         .delete(`/users/${userId}`)
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
    
       // Try to get the deleted blog and expect a 404 error
       const getResponse = await request(app)
-         .get(`/users/${userId}`);
-      expect(getResponse.status).toBe(404);
+         .get(`/users/${userId}`)
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+         expect(getResponse.status).toBe(404);
    }, 10000);
 
 })
@@ -184,7 +201,7 @@ describe('Users API', () => {
 
 
 describe('comments API', () => {
-   it('GET /comments --> array blogs', () => {
+   it('GET /comments --> array comments', () => {
       return request(app)
          .get('/comments')
          .expect('Content-Type', /json/)
@@ -201,9 +218,9 @@ describe('comments API', () => {
    }, 23000);
 
 
-   it('GET /comments/id --> specific blog by ID', () => {
+   it('GET /comments/id --> specific comment by ID', () => {
       return request(app)
-         .get('/comments/6414332ca9c8f014d20356ad')
+         .get('/comments/6418c244aa5e75dd169644c9')
          .expect('Content-Type', /json/)
          .expect(200)
          .then((response) => {
@@ -217,7 +234,7 @@ describe('comments API', () => {
    }, 6000);
 
 
-   it('GET /comments/id --> 404 if not found', () => {
+   it('GET /Comments/id --> 404 if not found', () => {
       return request(app).get('/comments/33333').expect(404);
    });
 
@@ -264,7 +281,7 @@ describe('comments API', () => {
 
 
 describe('Query API', () => {
-   it('GET /query --> array blogs', () => {
+   it('GET /query --> array queries', () => {
       return request(app)
          .get('/query/api')
          .expect('Content-Type', /json/)
@@ -281,9 +298,9 @@ describe('Query API', () => {
    }, 23000);
 
 
-   it('GET /query/api/id --> specific blog by ID', () => {
+   it('GET /query/api/id --> specific query by ID', () => {
       return request(app)
-         .get('/comments/6414332ca9c8f014d20356ad')
+         .get('/query/api/6418cf82fcd50bb55a454c41')
          .expect('Content-Type', /json/)
          .expect(200)
          .then((response) => {
@@ -301,12 +318,12 @@ describe('Query API', () => {
       return request(app).get('/query/api/33333').expect(404);
    });
 
-   it('POST /query/api --> create a comment', () => {
-      return request(app).post('/comments').send({
+   it('POST /query/api --> create a query', () => {
+      return request(app).post('/query/api').send({
          email: '45usqer@gmail.com',
          message: 'made query'
       })
-     // .expect('Content-Type', /json/)
+      .expect('Content-Type', /json/)
       .expect(201)
       .then((response) => {
          expect(response.body).toEqual(
@@ -319,11 +336,11 @@ describe('Query API', () => {
    });
 
 
-   it('DELETE /query/api/:id --> delete a user', async () => {
+   it('DELETE /query/api/:id --> delete a query', async () => {
       // Create a new blog
       const newUser = {
          email: 'usera@gmail.com',
-         message: 'made comment'
+         message: 'made query'
       };
       const createResponse = await request(app)
          .post('/query/api')
