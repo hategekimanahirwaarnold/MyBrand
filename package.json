@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "modules.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "node app",
     "test": "jest --forceExit --detectOpenHandles"
   },
   "author": "",
