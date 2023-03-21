@@ -4,7 +4,7 @@
   "main": "modules.js",
   "scripts": {
     "start": "nodemon app",
-    "test": "jest --watchAll --forceExit"
+    "test": "jest --forceExit"
   },
   "author": "",
   "license": "ISC",
