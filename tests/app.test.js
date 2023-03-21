@@ -9,42 +9,75 @@ const newBlog = {
    description: 'Test description',
    body: 'Test body',
 };
-const createResponse = await request(app)
-   .post('/blogs/api')
-   .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-   .send(newBlog);
-const blogid = createResponse.body._id;
+const createBlog = async () => {
+   const response = await request(app)
+     .post('/blogs/api')
+     .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+     .send(newBlog);
+   return response;
+ };
+ createBlog();
+ 
+ const blogid = async () => {
+   const response = await createBlog();
+   const blogId = response.body._id;
+   return blogId
+ };
 
-// Create a new user
+ // Create a new user
 const newUser = {
-   email: 'usera@gmail.com',
-   password: 'made user'
+    email: 'ushatedera1a@gmail.com',
+    password: 'made user'
 };
-const createUser = await request(app)
-   .post('/users')
-   .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-   .send(newUser);
-const userId = createUser.body._id;
+ const createUser = async ()=> {
+    const response = await request(app)
+    .post('/users')
+    .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+    .send(newUser);
+    return response;
+}; 
+createUser();
+const userid = async () => {
+   const response = await createUser();
+   const userId = response.body._id;
+   return userId
+ };
 
  // Create a new comment
  const newComment= {
    email: 'usera@gmail.com',
    message: 'made comment'
 };
-const createComment = await request(app)
+const createComment = async ()=> {
+   const response = await request(app)
    .post('/comments')
    .send(newComment);
-const commentId = createComment.body._id;
-
-  // Create a new query
-  const newquery = {
-   email: 'usera@gmail.com',
-   message: 'made query'
+   return response;
 };
-const createQuery = await request(app)
-   .post('/query/api')
-   .send(newquery);
-const queryId = createQuery.body._id;
+createComment();
+const commentId = async () => {
+   const response = await createComment();
+   const userId = response.body._id;
+   return userId
+ };   
+
+ // Create a new query
+   const newquery = {
+    email: 'usera@gmail.com',
+    message: 'made query'
+ };
+ const createQuery = async ()=> {
+    const response = await request(app)
+    .post('/query/api')
+    .send(newquery);
+    return response;
+ };
+ createQuery(); 
+ const queryId = async () => {
+   const response = await createQuery();
+   const userId = response.body._id;
+   return userId
+ };   
 
 
 //beginning of tests
@@ -64,22 +97,24 @@ describe('Blogs API', () => {
             ])
             );
          });
-   }, 25000);
-// single blog
-   it('GET /blogs/api/id --> specific blog by ID', () => {
+   }, 38000);
+
+    // single blog
+   it('GET /blogs/api/:id --> specific blog by ID', async () => {
+      const id = await blogid(); // Call the blogid function and await its result
       return request(app)
-         .get(`/blogs/api/${blogid}`)
-         .expect('Content-Type', /json/)
-         .expect(200)
-         .then((response) => {
-            expect(response.body).toEqual(
-               expect.objectContaining({
-                  title: expect.any(String),
-                  description: expect.any(String),
-                  body: expect.any(String),
-               }),
-            );
-         });
+      .get(`/blogs/api/${id}`)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+         expect(response.body).toEqual(
+            expect.objectContaining({
+            title: expect.any(String),
+            description: expect.any(String),
+            body: expect.any(String),
+            }),
+         );
+      });
    }, 6000);
 
 
@@ -109,8 +144,10 @@ describe('Blogs API', () => {
       });
    });
 
-    it('UPDATE /blogs/api/id --> edit a blogs',() => {
-      return request(app).put(`/blogs/api/${blogid}`)
+    it('UPDATE /blogs/api/id --> edit a blogs', async () => {
+      const id = await blogid(); // Call the blogid function and await its result
+      return request(app)
+      .put(`/blogs/api/${id}`)
       .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
       .send({
          title: 'blog updated',
@@ -157,7 +194,7 @@ describe('Blogs API', () => {
 });
 
 describe('Users API', () => {
-   it('GET /users --> array blogs', () => {
+   it('GET /users --> array of users', () => {
       return request(app)
          .get('/users')
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
@@ -175,11 +212,30 @@ describe('Users API', () => {
    }, 23000);
 
 
-   it('GET /users/id --> specific user by ID', () => {
-      return request(app)
-         .get(`/users/${userId}`)
+   it('GET /users/id --> specific user by ID', async () => {
+      const anewUser = {
+         email: 'ushatuuuedera1a@gmail.com',
+         password: 'made user'
+     };
+      // Create a new user
+      const createnewUser = async ()=> {
+         const response = await request(app)
+         .post('/users')
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-         .expect('Content-Type', /json/)
+         .send(anewUser);
+         return response;
+     }; 
+     const userid = async () => {
+        const response = await createnewUser();
+        const userId = response.body._id;
+        return userId
+      };
+     
+      const id = await userid(); // Call the userid function and await its result
+      return request(app)
+         .get(`/users/${id}`)
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+//.expect('Content-Type', /json/)
          .expect(200)
          .then((response) => {
             expect(response.body).toEqual(
@@ -189,7 +245,11 @@ describe('Users API', () => {
                }),
             );
          });
-   }, 6000);
+         await request(app)
+         .delete(`/users/${id}`)
+         .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+   
+   }, 10000);
 
 
    it('GET /users/id --> 404 if not found', () => {
@@ -216,14 +276,15 @@ describe('Users API', () => {
 
 
    it('DELETE /users/:id --> delete a user', async () => {
+      const id = await userid(); // Call the userid function and await its result
       // Delete the user
       const deleteResponse = await request(app)
-         .delete(`/users/${userId}`)
+         .delete(`/users/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
    
       // Try to get the deleted user and expect a 404 error
       const getResponse = await request(app)
-         .get(`/users/${userId}`)
+         .get(`/users/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          expect(getResponse.status).toBe(404);
    }, 10000);
@@ -251,9 +312,10 @@ describe('comments API', () => {
    }, 23000);
 
 
-   it('GET /comments/id --> specific comment by ID', () => {
+   it('GET /comments/id --> specific comment by ID', async () => {
+      const id = await commentId(); // Call the blogid function and await its result
       return request(app)
-         .get(`/comments/${commentId}`)
+         .get(`/comments/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .expect('Content-Type', /json/)
          .expect(200)
@@ -294,15 +356,16 @@ describe('comments API', () => {
 
 
    it('DELETE /comments/:id --> delete a user', async () => {
+      const id = await commentId(); // Call the blogid function and await its result
      
       // Delete the comment
       const deleteResponse = await request(app)
-         .delete(`/comments/${commentId}`)
+         .delete(`/comments/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
    
       // Try to get the deleted a comment and expect a 404 error
       const getResponse = await request(app)
-         .get(`/comments/${commentId}`)
+         .get(`/comments/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          expect(getResponse.status).toBe(404);
    }, 10000);
@@ -329,9 +392,10 @@ describe('Query API', () => {
    }, 23000);
 
 
-   it('GET /query/api/id --> specific query by ID', () => {
+   it('GET /query/api/id --> specific query by ID', async () => {
+      const id = await queryId(); // Call the blogid function and await its result
       return request(app)
-         .get(`/query/api/${queryId}`)
+         .get(`/query/api/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          .expect('Content-Type', /json/)
          .expect(200)
@@ -372,15 +436,16 @@ describe('Query API', () => {
 
 
    it('DELETE /query/api/:id --> delete a query', async () => {
+      const id = await queryId(); // Call the blogid function and await its result
     
       // Delete the blog
       const deleteResponse = await request(app)
-         .delete(`/query/api/${queryId}`)
+         .delete(`/query/api/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
    
       // Try to get the deleted blog and expect a 404 error
       const getResponse = await request(app)
-         .get(`/query/api/${queryId}`)
+         .get(`/query/api/${id}`)
          .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
          expect(getResponse.status).toBe(404);
    }, 10000);
