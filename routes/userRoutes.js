@@ -1,7 +1,7 @@
 const express = require('express')
 const authCont = require('../controllers/authCont.js');
 const urouter = express.Router();
-const User = require('../models/User');
+const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
