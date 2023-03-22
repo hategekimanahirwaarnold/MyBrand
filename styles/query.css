@@ -3,7 +3,7 @@ html {
     padding: 0;
 }
 body {
-    background: url("/img/background-all") no-repeat;
+    background: url("/background-all") no-repeat;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -11,17 +11,19 @@ body {
     gap: 0em;
     min-height: 100vh;
     width: 100%;
+    overflow: auto;
 }
 nav {
     left: 0%;
     display: block;
-    background: url("/img/background-all") no-repeat;
+    background: url("/background-all") no-repeat;
     background-attachment: fixed;
     object-fit: cover;
     background-size: cover;
     background-position: center;
     width: 13vw;
     min-height: 100vh;
+    position: fixed;
 }
 
 #check, #menu-icon {

@@ -91,7 +91,7 @@ loginBtn.addEventListener('click', async (e) => {
     let password = loginPass.value.trim();
   
     try {
-        const res = await fetch('/adLogin', {
+        const res = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ email, password}),
             headers: { 'Content-Type': 'application/json'}

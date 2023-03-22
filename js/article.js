@@ -34,12 +34,16 @@ async function submitComment(e) {
       email: "h@gmail.com",
       message: wrtnComment.value
   };
-  await fetch('/comments', {
-      method: 'POST',
-      body: JSON.stringify(doc),
-      headers:{ 'content-type': 'application/json' }
-  });
-  location.reload();
+  if (wrtnComment.value == "") {
+    alert("Please write your comment before sending!")
+  } else {
+    await fetch('/comments', {
+        method: 'POST',
+        body: JSON.stringify(doc),
+        headers:{ 'content-type': 'application/json' }
+    });
+    location.reload();
+  }
 };
 
 function addComment(e) {

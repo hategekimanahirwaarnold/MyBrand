@@ -94,12 +94,12 @@ app.get('/contact', (req,res)=> {
 app.get('/create', requireSwagger,(req,res)=> {
   res.render('create');
 });
-
+app.get('/accounts', requireSwagger,(req,res)=> {
+  res.render('accounts');
+});
 app.get('/edit', requireAuth,(req,res)=> {
   res.render('edit');
 });
-
-
 
 
 // Add Swagger

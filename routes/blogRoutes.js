@@ -29,7 +29,7 @@ router.get('/manage', requireSwagger, blogCont.manageBlogs);
 // render all blogs - both website and swagger
 router.get('/blogs', blogCont.getBlogs);
 // post a new blog 
-router.post('/blogs', requireSwagger, blogCont.postApiNew);
+router.post('/blogs', requireSwagger, blogCont.postNew);
 // post required data before editing a blog
 router.post('/edit/:id', requireSwagger, blogCont.findEditBlog);
 // edit a blog 

@@ -6,7 +6,7 @@ console.log(numTrash);
 trash[0].addEventListener('click', (e) => {
     const endpoint= `/blogs/${trash.dataset.doc}`;
 
-    fetch(endpoint, {
+    fetch(('/blogs/api'), {
         method: 'DELETE'
     })
     .then((response) => response.json())

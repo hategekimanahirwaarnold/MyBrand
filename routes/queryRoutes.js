@@ -7,12 +7,7 @@ const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware')
 const Qrouter = express.Router();
 
 
-// Qrouter.get('/query',(req,res)=> {
-//     const acceptHeader = req.get('Accept');
-//     if (acceptHeader === 'application/json') {
-//     res.render('query');
-//     }
-// });
+
 
 
 Qrouter.route('/query/api')
@@ -63,6 +58,9 @@ Qrouter.route('/query/api/:id')
     }
   });
 
+  Qrouter.get('/query',(req,res)=> {
+    res.render('query');
+});
 module.exports = Qrouter;
 
 

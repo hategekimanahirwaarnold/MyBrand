@@ -31,6 +31,29 @@
     </div> 
             <div class="below-nav">
                 <div class="left-side">
+                    <% if (blogs.length > 0) {%>
+                        <% blogs.forEach(blog => {%>
+                            <div class="post">
+                                <header><%= blog.title %> </header>
+                                <div class="cycle"></div>
+                                <p class="p"><%= blog.description %> </p>
+                                <a href="/blogs/<%= blog._id %>">Read more</a>
+                            </div>
+                            <% }) %>
+                        <% } else { %> 
+                            <p>There are no blogs to display...</p>
+                    <% } %> 
+                    <!-- <div class="post">
+                        <header>INSIDE MATH CAMPS</header>
+                        <div class="cycle-2"></div>
+                        <p class="p">
+                            In the beginning I thought  that computer is all about knowing
+                            to open and close icons, knowing where various features are 
+                            located, or knowing the best versions of games, movies,
+                            music. However, I was wrong... 
+                        </p>
+                        <a href="">Read more</a>
+                    </div>
                     <div class="post">
                         <header>WHAT IS LIFE</header>
                         <div class="cycle-4"></div>
@@ -46,29 +69,6 @@
                         </p>
                         <a href="">Read more</a>
                     </div> 
-                    <% if (blogs.length > 0) {%>
-                        <% blogs.forEach(blog => {%>
-                            <div class="post">
-                                <header><%= blog.title %> </header>
-                                <div class="cycle"></div>
-                                <p class="p"><%= blog.description %> </p>
-                                <a href="/blogs/<%= blog._id %>">Read more</a>
-                            </div>
-                            <% }) %>
-                        <% } else { %> 
-                            <p>There are no blogs to display...</p>
-                    <% } %> 
-                    <div class="post">
-                        <header>INSIDE MATH CAMPS</header>
-                        <div class="cycle-2"></div>
-                        <p class="p">
-                            In the beginning I thought  that computer is all about knowing
-                            to open and close icons, knowing where various features are 
-                            located, or knowing the best versions of games, movies,
-                            music. However, I was wrong... 
-                        </p>
-                        <a href="">Read more</a>
-                    </div>
                     <div class="post">
                         <header>MATH PERSPECTIVE</header>
                         <div class="cycle-3"></div>
@@ -79,7 +79,7 @@
                             music. However, I was wrong... 
                         </p>
                         <a href="">Read more</a>
-                    </div>
+                    </div> -->
                 <div class="pimage2"></div>
             </div>
     <div class="img-right"><p></p></div>

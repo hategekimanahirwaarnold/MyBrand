@@ -283,7 +283,7 @@ h2 {
 }
 
 @media all and (max-width: 750px) {
-  .begin .top {
+    .begin .top {
         gap: 10px;
     }
      .pimage {
@@ -326,7 +326,7 @@ h2 {
     #fa, #fb, #fc, #fd,#fe, #ff, #fg {
         display: inline;
     }
-     .img-right, .img-side {
+    .img-right, .img-side {
         opacity:20%;
         background-attachment: fixed;
         width: 6vw;
@@ -394,6 +394,8 @@ h2 {
     .right-side {
         width: 85vw;
         height: 550px;
+        border: dashed;
+        margin: auto;
     }
     .lang-pro {
         padding: 0 5px;

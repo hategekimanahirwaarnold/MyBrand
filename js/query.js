@@ -4,7 +4,7 @@ const replyBtn = document.querySelector('.replyBtn');
 
 const renderQueries = async (e) => {
     e.preventDefault;
-    let uri = 'http://localhost:3000/queries';
+    let uri = '/query/api';
 
     const res = await fetch(uri);
     const posts = await res.json();

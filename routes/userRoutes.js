@@ -9,58 +9,13 @@ const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware')
 urouter.get('/signup', authCont.signup_get);
 urouter.post('/signup', authCont.signup_post);
 urouter.get('/login', authCont.login_get);
-urouter.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    const acceptHeader = req.get('Accept');
-    if (acceptHeader === 'application/json') {
-      try {
-        const user = await User.login(email, password);
-        const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user._id });
-      } catch (err) {
-        const errors = handleErrors(err);
-        res.status(404).json({ errors });
-      }
-    } else {
-      res.redirect('/login');
-    }
-  });
-//urouter.post('/login', authCont.login_post);
-// urouter.get('/accounts', authCont.getAllUsers);
+urouter.post('/login', authCont.login_post);
+urouter.get('/accounts', authCont.getAllUsers);
 
-// const handleErrors = (err) => {
-//     console.log(err.message, err.code);
-//     let errors = { email: '', password: '' }
- 
-//     // incorrect email
-//     if (err.message === 'Incorrect email'){
-//      errors.email = 'that email is not registered';
-//     }
-//      // incorrect pass
-//      if (err.message === 'Incorrect password'){
-//          errors.email = 'that password is incorrect';
-//      }
- 
- 
-//     //duplicate error code 
-//     if (err.code === 11000){
-//       errors.email = "that email is already registered";
-//       return errors;
-//     }
- 
-//     //validation errors
-//     if (err.message.includes('user validation failed')) {
-//        Object.values(err.errors).forEach(({properties}) => {
-//          errors[properties.path] = properties.message;
-//        });
-//     }
- 
-//     return errors;
-//  };
+
   const maxAge = 7 * 24 * 60 * 60;
   const createToken = (id) => {
-      return jwt.sign({ id }, 'hirwa secret', {
+      return jwt.sign({ id }, process.env.USECRET, {
           expiresIn: maxAge
       })
   };
@@ -115,25 +70,6 @@ urouter.get('/Users', requireSwagger, async (req, res) => {
       res.status(404).json({ errors });
     }
   });
-
-  urouter.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    const acceptHeader = req.get('Accept');
-    if (acceptHeader === 'application/json') {
-        try {
-          const user = await User.login(email, password);
-          const token = createToken(user._id);
-      
-          res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-          res.status(200).json({ user: user._id });
-        } catch (err) {
-          const errors = handleErrors(err);
-          res.status(404).json({ errors });
-        }
-    }
-  
-  });
-  
 // Get a single user by ID
   urouter.get('/Users/:id', requireSwagger, async (req, res) => {
 
