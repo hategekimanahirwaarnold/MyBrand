@@ -13,7 +13,7 @@ const commentRoutes = require('./routes/commentRoutes');
 const adRoutes = require('./routes/adRoutes');
 const acRoutes = require('./routes/acRoutes');
 const cookieParser = require('cookie-parser');
-const { requireAuth, requireSwagger } = require('./midddleware/authmiddleware'); 
+const { requireAuth, checkUser, requireSwagger } = require('./midddleware/authmiddleware'); 
 
 // express appx
 const app = express();
@@ -50,6 +50,9 @@ if(process.env.NODE_ENV_CUSTOM !== 'test') {
   app.use(morgan('dev'));
 };
 
+// check users
+  app.get('*', checkUser);
+ 
  // blogroutes
   app.use(blogRoutes);
  //query routes

@@ -47,13 +47,19 @@
                         
                     </div>
                     <img src="/comp.png" class="comp" alt="">
-                    <div class="login">   
-                        <p class="log1"><a href="/login">login/ Sign in</a> and see </p>
-                        <p class="log2">what remained in Hirwa's </p> 
-                        <div class="witharrow">
-                            <p class="log3">mindset </p>
-                            <img src="/arrow.png" class="arrow" alt="">
-                        </div>
+                    <div class="login">  
+                       
+                        <% if (user) { %>
+                            <p>Welcome, <%= user.email %> </p> 
+                            <a href="/logout"><i id="fk"  class="fa fa-sign-out"></i>Logout</a>
+                        <% } else { %> 
+                            <p class="log1"><a href="/login">login/ Sign in</a> and see </p>
+                            <p class="log2">what remained in Hirwa's </p> 
+                            <div class="witharrow">
+                                <p class="log3">mindset </p>
+                                <img src="/arrow.png" class="arrow" alt="">
+                            </div>
+                       <% } %>
                     </div>
                 </div>
                 <div class="pimage2"></div>

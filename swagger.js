@@ -11,7 +11,7 @@ function swagger(app) {
       },
       servers: [
         {
-          url: 'http://localhost:3016',
+          url: 'https://hirwa-arnold.cyclic.app',
         },
       ],
     },

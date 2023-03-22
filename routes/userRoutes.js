@@ -10,6 +10,7 @@ urouter.get('/signup', authCont.signup_get);
 urouter.post('/signup', authCont.signup_post);
 urouter.get('/login', authCont.login_get);
 urouter.post('/login', authCont.login_post);
+urouter.get('/logout', authCont.logout_get);
 urouter.get('/accounts', authCont.getAllUsers);
 
 
