@@ -1,0 +1,58 @@
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20');
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+
+ const maxAge = 7 * 24 * 60 * 60;
+   const createToken = (id) => {
+       return jwt.sign({ id }, process.env.USECRET, {
+           expiresIn: maxAge
+       })
+ };
+
+
+  passport.serializeUser((user, done) => {
+      done(null, user.id); 
+  });
+
+  passport.deserializeUser((id, done) => {
+      User.findById(id).then((user) => {
+          done(null, user);
+      })
+  });
+
+
+// modify your passport.use() callback function
+passport.use(new GoogleStrategy({
+  //options for the google strat
+  callbackURL: '/auth/google/redirect',
+  clientID: process.env.clientID,
+  clientSecret: process.env.clientSecret
+}, (res, accessToken, refreshToken, profile, done) => {
+  //Check if use exist in the data base
+  User.findOne({ email: profile.emails[0].value })
+  .then((currentUser) => {
+    if (currentUser) {
+      // already have the user
+      console.log('user is:', currentUser);
+      const token = createToken(currentUser._id);
+      console.log( 'token is:', token);
+      console.log();
+      //res.send('the current one');
+      //res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+      done(null, currentUser);
+    } else {
+      // create a new user in db
+      new User({
+        email: profile.emails[0].value,
+        password: profile.id
+      }).save().then((newUser) => {
+        console.log('new user created' + newUser);
+        const token = createToken(newUser._id);
+        console.log(token);
+       // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+        done(null, newUser);
+      });
+    }
+  });
+}));

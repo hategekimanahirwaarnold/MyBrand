@@ -4,7 +4,9 @@ const urouter = express.Router();
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
-const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
+const { requireAuth, requireSwagger, checkUser } = require('../midddleware/authmiddleware'); 
+const passport = require('passport');
+
 
 urouter.get('/signup', authCont.signup_get);
 urouter.post('/signup', authCont.signup_post);
@@ -103,7 +105,40 @@ urouter.get('/Users', requireSwagger, async (req, res) => {
       res.status(500).send('Server Error');
     }
   });
-  
+
+
+ //auth with google
+ urouter.get('/glogout', (req, res) => {
+  //handle with passport
+  res.send('logging out with google');
+});
+
+  //auth with google
+  urouter.get('/google', passport.authenticate('google', {
+    scope: ['profile', 'email']
+  }));
+
+  const authCheck = (req, res, next) => {
+    if(req.user){
+      const token = createToken(req.user._id);
+      res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+      next();
+    } else {
+      res.locals.user = null;
+      next();
+    }
+   }
+ 
+ 
+  //callback route for google redirect
+
+ urouter.get('/auth/google/redirect', passport.authenticate('google'), authCheck, (req, res) => {
+  res.redirect('/');
+ });
+
+
+
+
 module.exports = urouter;
 
 /**

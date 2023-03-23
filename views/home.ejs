@@ -50,8 +50,8 @@
                     <div class="login">  
                        
                         <% if (user) { %>
-                            <p>Welcome, <%= user.email %> </p> 
-                            <a href="/logout"><i id="fk"  class="fa fa-sign-out"></i>Logout</a>
+                            <p class="Euser">Welcome, <%= user.email %> </p> 
+                            <a href="/logout" id="fk" ><i class="fa fa-sign-out"></i>Logout</a>
                         <% } else { %> 
                             <p class="log1"><a href="/login">login/ Sign in</a> and see </p>
                             <p class="log2">what remained in Hirwa's </p> 

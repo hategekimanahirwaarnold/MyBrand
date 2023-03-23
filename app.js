@@ -14,6 +14,11 @@ const adRoutes = require('./routes/adRoutes');
 const acRoutes = require('./routes/acRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser, requireSwagger } = require('./midddleware/authmiddleware'); 
+const passportSetup = require('./services/passport-setup');
+var cookieSession = require('cookie-session')
+const passport = require('passport');
+const session = require('express-session');
+
 
 // express appx
 const app = express();
@@ -22,6 +27,17 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+// configure session middleware
+app.use(session({
+  name: 'session',
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// initialize passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // import the swagger-ui-express middleware
 const swaggerUi = require('swagger-ui-express');
@@ -112,9 +128,9 @@ const swaggerDocument = swagger(app);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // 404 page
-app.use((req, res) => {
-  res.status(404).render('404');
-});
+// app.use((req, res) => {
+//   res.status(404).render('404');
+// });
 
 
 module.exports = app

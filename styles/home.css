@@ -253,6 +253,17 @@ i {
     width: 2.5em;
     transform: translateX(10px);
 }
+.Euser {
+    overflow: auto;
+    width: 320px;
+    margin: 20px auto;
+    height: 60px;
+    line-height: 30px;
+    word-wrap: break-word;
+}
+#fk {
+    padding: auto auto;
+}
  @media (max-width: 1110px) {
     .logo {
         margin-left: 55px;
@@ -430,7 +441,10 @@ i {
 
    .arrow {
     width: 8vw;
-} 
+  } 
+  .Euser {
+    width: 100%;
+}
     /* .left-side {
         text-align: center;
         width: 90%;

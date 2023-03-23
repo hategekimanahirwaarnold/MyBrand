@@ -193,7 +193,9 @@ button p {
 button:hover img {
     transform: rotate(360deg);
 }
-
+.glgin {
+    text-decoration: none;
+}
 .or, .have {
     margin: auto;
     font-size: 15px;
