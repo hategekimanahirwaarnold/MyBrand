@@ -38,7 +38,9 @@ jobs:
       USECRET: ${{ secrets.USECRET }}
       GMAIL: ${{ secrets.GMAIL }}
       PASSWORD: ${{ secrets.PASSWORD }}
-
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
