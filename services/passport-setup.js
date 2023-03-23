@@ -26,8 +26,8 @@ const jwt = require('jsonwebtoken');
 passport.use(new GoogleStrategy({
   //options for the google strat
   callbackURL: '/auth/google/redirect',
-  clientID: process.env.clientID,
-  clientSecret: process.env.clientSecret
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
 }, (res, accessToken, refreshToken, profile, done) => {
   //Check if use exist in the data base
   User.findOne({ email: profile.emails[0].value })

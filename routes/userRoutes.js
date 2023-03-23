@@ -131,7 +131,6 @@ urouter.get('/Users', requireSwagger, async (req, res) => {
  
  
   //callback route for google redirect
-
  urouter.get('/auth/google/redirect', passport.authenticate('google'), authCheck, (req, res) => {
   res.redirect('/');
  });
