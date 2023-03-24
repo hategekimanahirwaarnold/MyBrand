@@ -21,11 +21,12 @@ const jwt = require('jsonwebtoken');
       })
   });
 
+const callbackURL = process.env.NODE_ENV === 'production' ? 'https://hirwa-arnold.cyclic.app/auth/google/redirect' : 'http://localhost:3016/auth/google/redirect';
 
 // modify your passport.use() callback function
 passport.use(new GoogleStrategy({
   //options for the google strat
-  callbackURL: '/auth/google/redirect',
+  callbackURL: callbackURL,
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
 }, (res, accessToken, refreshToken, profile, done) => {

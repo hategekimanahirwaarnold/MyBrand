@@ -129,6 +129,7 @@ urouter.get('/Users', requireSwagger, async (req, res) => {
     }
    }
  
+const callbackURL = process.env.NODE_ENV === 'production' ? 'https://hirwa-arnold.cyclic.app/auth/google/redirect' : 'http://localhost:3016/auth/google/redirect';
  
   //callback route for google redirect
  urouter.get('/auth/google/redirect', passport.authenticate('google'), authCheck, (req, res) => {
