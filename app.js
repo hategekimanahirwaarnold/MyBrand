@@ -128,9 +128,9 @@ const swaggerDocument = swagger(app);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // 404 page
-// app.use((req, res) => {
-//   res.status(404).render('404');
-// });
+ app.use((req, res) => {
+   res.status(404).render('404');
+ });
 
 
 module.exports = app
