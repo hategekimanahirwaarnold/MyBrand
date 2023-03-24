@@ -22,22 +22,22 @@
             <li><a href="/manage" ></i> Manage</a></li>
         </ul>
     </nav>
-    <form action="/edit/<%= blog._id %>" method="POST"> 
+    <form action="/edit/<%= blog._id %>" method="POST" enctype="multipart/form-data">
         <div class="aside-nav">    
             <div class="left">
                 <input type="text" value="<%= blog.title %>" placeholder="title" class="ttl" name="title" required>
-                <input type="date" placeholder="date" name="date">
-                <input type="file" placeholder="Select image" name="image">
-                <textarea type="text" placeholder="description" name="description" required><%= blog.description %></textarea>
-                <div class="articles">  
+                <input type="date" value="<%= blog.date %>" placeholder="date" name="date" id="thisDate" required>
+                <label for="image">Select an image:</label>
+                <input type="file" value="<%= blog.image %>" id="image" name="image">
+                <textarea type="text" placeholder="Description" name="description" required>"<%= blog.description %>"</textarea>
+                <div class="articles"> 
                 </div> 
             </div>
             <div class="middle">
-                <textarea type="text" placeholder="Article" class="artcl" name="body" required><%= blog.body %></textarea>
-                <button data-doc="<%= blog._id %>" class="submit-btn"><p>Save</p></button>
+                <textarea type="text" placeholder="Article" class="artcl" name="body" required>"<%= blog.body %>"</textarea>
+                <button class="submit-btn" onclick=""><p>Post</p></button>
             </div> 
-    </form> 
-    
+    </form>
 
         <!-- <div class="right">
             <h3>Comments</h3>

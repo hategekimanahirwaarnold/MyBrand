@@ -1,5 +1,75 @@
 const Blog = require('../models/blog');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+   cloud_name: process.env.CLOUD_NAME,
+   api_key: process.env.CLOUD_KEY,
+   api_secret: process.env.CLOUD_SECRET
+});
+
+function formatInputDate(dateInput) {
+   // Convert the date input string to a Date object
+   var dateObj = new Date(dateInput);
+   
+   // Get the formatted date string in the user's locale
+   const formattedDate = dateObj.toLocaleDateString("en-us", {
+       year: "numeric",
+       month: "long",
+       day: "numeric",
+   });
+   console.log(formattedDate);
+   return formattedDate;
+ };
+
+const storage = multer.diskStorage({
+   destination: function(req, file, cb) {
+     cb(null, 'uploads/');
+   },
+   filename: function(req, file, cb) {
+     cb(null, Date.now() + '-' + file.originalname);
+   }
+ });
+ const upload = multer({ storage: storage });
+ 
+
+// post a new blog 
+module.exports.postNew = async (req, res) => {
+   try {
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const blog = new Blog({
+        title: req.body.title,
+        description: req.body.description,
+        body: req.body.body,
+        image: result.secure_url,
+        date:  formatInputDate(req.body.date)
+      });
+      blog.save()
+      .then((result) => {
+         console.log(blog);
+         const acceptHeader = req.get('Accept');
+         if (acceptHeader === 'application/json') {
+            console.log('Done');
+            res.status(201).json(result);
+         } else {
+            console.log('Done');
+            res.redirect('/manage')
+         }
+      })
+      .catch ((err) => {
+         const acceptHeader = req.get('Accept');
+         if (acceptHeader === 'application/json') {
+            console.log(err);
+            res.status(500).json({ error: 'Internal server error' });
+         } else {
+            console.log(err)}
+      });
+   } catch(err) {
+      console.log(err)
+   };
+};
+
 // sort blogs on the manage page
 module.exports.manageBlogs = (req,res)=> {
     Blog.find().sort({ createdAt: -1 })
@@ -36,31 +106,6 @@ module.exports.getBlogs = (req,res) => {
    });
 };
 
- 
-// post a new blog 
-module.exports.postNew = (req, res) => {
-    const blog = new Blog(req.body);
-
-    blog.save()
-      .then((result) => {
-         const acceptHeader = req.get('Accept');
-         if (acceptHeader === 'application/json') {
-            console.log('Done');
-            res.status(201).json(result);
-         } else {
-            console.log('Done');
-            res.redirect('/manage')
-         }
-      })
-      .catch ((err) => {
-         const acceptHeader = req.get('Accept');
-         if (acceptHeader === 'application/json') {
-            console.log(err);
-            res.status(500).json({ error: 'Internal server error' });
-         } else {
-            console.log(err)}
-      });
-};
 // post new api blog
 module.exports.postApiNew = (req, res) => {
     const blog = new Blog(req.body);
@@ -75,7 +120,7 @@ module.exports.postApiNew = (req, res) => {
       });
 };
 
-//edit a blog on admin portal
+//relocate to where admin can edit a blog on admin portal
 module.exports.editBlog = (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
@@ -95,16 +140,30 @@ module.exports.editBlog = (req, res) => {
          console.log(err)
       });
  };
- module.exports.findEditBlog = (req, res) => {
-    const id = req.params.id;
-    const update = req.body;
-    Blog.findByIdAndUpdate(id, update, { new: true})
-     .then(result => {
-         res.redirect('/manage')
-     })
-     .catch (err => {
-        console.log(err);
-     });
+
+// edit a blog
+ module.exports.findEditBlog = async (req, res) => {
+   try {
+      const result = await cloudinary.uploader.upload(req.file.path);
+      const id = req.params.id;
+      const update = ({
+        title: req.body.title,
+        description: req.body.description,
+        body: req.body.body,
+        image: result.secure_url,
+        date:  formatInputDate(req.body.date)
+      })
+      Blog.findByIdAndUpdate(id, update, { new: true})
+       .then(result => {
+           res.redirect('/manage')
+       })
+       .catch (err => {
+          console.log(err);
+       });
+   } catch (err) {
+      console.log(err);
+   }
+
 };
 // single blog
 module.exports.singleBlog = (req, res) => {

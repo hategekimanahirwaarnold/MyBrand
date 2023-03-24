@@ -35,7 +35,7 @@
                         <% blogs.forEach(blog => {%>
                             <div class="post">
                                 <header><%= blog.title %> </header>
-                                <div class="cycle"></div>
+                                <img class="cycle" src="<%= blog.image %>" alt="<%= blog.title %>">
                                 <p class="p"><%= blog.description %> </p>
                                 <a href="/blogs/<%= blog._id %>">Read more</a>
                             </div>

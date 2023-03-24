@@ -24,6 +24,7 @@ nav {
     background-position: center;
     width: 13vw;
     min-height: 100vh;
+    position: fixed;
 }
 
 #check, #menu-icon {
@@ -137,7 +138,9 @@ i {
 .Btn {
     margin: auto;
 }
-
+.none {
+    text-align: center;
+}
 @media (max-width: 1060px) {
     nav ul li a {
         font-size: 2.2vw;

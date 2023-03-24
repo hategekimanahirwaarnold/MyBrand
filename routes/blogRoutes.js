@@ -4,9 +4,20 @@ const router = express.Router();
 const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
 const blogCont = require('../controllers/blogCont');
 const { verifyToken } = require('../midddleware/adminMiddleware'); 
+const multer = require('multer');
+const fs = require('fs');
 
-
-
+// set up multer storage engine
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, 'uploads/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, Date.now() + '-' + file.originalname);
+    }
+  });
+  const upload = multer({ storage: storage });
+  
 
 // swagger crud operations
 
@@ -29,10 +40,10 @@ router.get('/manage', requireSwagger, blogCont.manageBlogs);
 // render all blogs - both website and swagger
 router.get('/blogs', blogCont.getBlogs);
 // post a new blog 
-router.post('/blogs', requireSwagger, blogCont.postNew);
-// post required data before editing a blog
-router.post('/edit/:id', requireSwagger, blogCont.findEditBlog);
-// edit a blog 
+router.post('/blogs', requireSwagger, upload.single('image'), blogCont.postNew);
+// editing a blog
+router.post('/edit/:id', requireSwagger, upload.single('image'), blogCont.findEditBlog);
+// post required data before 
 router.get('/edit/:id', requireSwagger, blogCont.editBlog);
 // direct the user to the article - both website and swagger
 router.get('/blogs/:id',blogCont.singleBlog);

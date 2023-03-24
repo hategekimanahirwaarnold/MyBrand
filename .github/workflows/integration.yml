@@ -40,7 +40,12 @@ jobs:
       PASSWORD: ${{ secrets.PASSWORD }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      
+      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+      CLOUD_SECRET: ${{ secrets.CLOUD_SECRET }}
+      CLOUD_KEY: ${{ secrets.CLOUD_KEY }}
+      CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
+      NODE_ENV: ${{ secrets.NODE_ENV }}
+
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]

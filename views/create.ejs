@@ -22,12 +22,13 @@
             <li><a href="/manage" ></i> Manage</a></li>
         </ul>
     </nav>
-    <form action="/blogs" method="POST">
+    <form action="/blogs" method="POST" enctype="multipart/form-data">
         <div class="aside-nav">    
             <div class="left">
                 <input type="text" placeholder="title" class="ttl" name="title" required>
-                <input type="date" placeholder="date" name="date" required>
-                <input type="file" placeholder="Select image" name="image" required>
+                <input type="date" placeholder="date" name="date" id="thisDate" required>
+                <label for="image">Select an image:</label>
+                <input type="file" id="image" name="image">
                 <textarea type="text" placeholder="Description" name="description" required></textarea>
                 <div class="articles"> 
                 </div> 
@@ -57,7 +58,7 @@
         </div>
     </div>     -->
     
-    <!-- <script src="/create.js"></script> -->
+     <script src="/create.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </body>
 </html>

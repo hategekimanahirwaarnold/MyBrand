@@ -34,9 +34,9 @@
             <div class="left-side"> 
                 <header>
                    <h3><%= blog.title %></h3>
-                   <time>16/March/2023</time> 
+                   <time><%= blog.date %></time> 
                 </header> 
-                <figure> <img src="/journey.avif" alt=""></figure>
+                <figure> <img src="<%= blog.image %>" alt="<%= blog.title %>"></figure>
                 <article>
                   <p><%= blog.body %></p>
                 </article>
@@ -58,7 +58,6 @@
                 </div>
                 <div class="sendC">
                     <input type="submit" class="submit-btn" value="Add your comment">
-                    <input type="text" class="" value="Add your comment">
                 </div>
                 <div class="commentSection">
                     <div class="second">
