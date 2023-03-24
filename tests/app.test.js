@@ -80,7 +80,11 @@ const commentId = async () => {
    return userId
  };   
 
-describe('test', () => {});
+describe('test', () => {
+   it('return hello world', () => {
+      console.log('hello world');
+   })
+});
 
 // //beginning of tests
 // describe('Blogs API', () => {
