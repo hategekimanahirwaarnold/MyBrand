@@ -1,85 +1,86 @@
-// process.env.NODE_ENV_CUSTOM = 'test';
-// const request = require('supertest');
-// const app = require('../app');
+process.env.NODE_ENV_CUSTOM = 'test';
+const request = require('supertest');
+const app = require('../app');
 
  
 
-// // create a new blob
-// const newBlog = {
-//    title: 'Test blog',
-//    description: 'Test description',
-//    body: 'Test body',
-// };
-// const createBlog = async () => {
-//    const response = await request(app)
-//      .post('/blogs/api')
-//      .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-//      .send(newBlog);
-//    return response;
-//  };
-//  createBlog();
+// create a new blob
+const newBlog = {
+   title: 'Test blog',
+   description: 'Test description',
+   body: 'Test body',
+};
+const createBlog = async () => {
+   const response = await request(app)
+     .post('/blogs/api')
+     .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+     .send(newBlog);
+   return response;
+ };
+ createBlog();
  
-//  const blogid = async () => {
-//    const response = await createBlog();
-//    const blogId = response.body._id;
-//    return blogId
-//  };
+ const blogid = async () => {
+   const response = await createBlog();
+   const blogId = response.body._id;
+   return blogId
+ };
 
-//  // Create a new user
-// const newUser = {
-//     email: 'ushatedera1a@gmail.com',
-//     password: 'made user'
-// };
-//  const createUser = async ()=> {
-//     const response = await request(app)
-//     .post('/users')
-//     .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
-//     .send(newUser);
-//     return response;
-// }; 
-// createUser();
-// const userid = async () => {
-//    const response = await createUser();
-//    const userId = response.body._id;
-//    return userId
-//  };
+ // Create a new user
+const newUser = {
+    email: 'ushatedera1a@gmail.com',
+    password: 'made user'
+};
+ const createUser = async ()=> {
+    const response = await request(app)
+    .post('/users')
+    .set('Cookie', `Adjwt=${process.env.TOKEN}`) // set the Authorization header with the JWT token
+    .send(newUser);
+    return response;
+}; 
+createUser();
+const userid = async () => {
+   const response = await createUser();
+   const userId = response.body._id;
+   return userId
+ };
 
-//  // Create a new comment
-//  const newComment= {
-//    email: 'usera@gmail.com',
-//    message: 'made comment'
-// };
-// const createComment = async ()=> {
-//    const response = await request(app)
-//    .post('/comments')
-//    .send(newComment);
-//    return response;
-// };
-// createComment();
-// const commentId = async () => {
-//    const response = await createComment();
-//    const userId = response.body._id;
-//    return userId
-//  };   
+ // Create a new comment
+ const newComment= {
+   email: 'usera@gmail.com',
+   message: 'made comment'
+};
+const createComment = async ()=> {
+   const response = await request(app)
+   .post('/comments')
+   .send(newComment);
+   return response;
+};
+createComment();
+const commentId = async () => {
+   const response = await createComment();
+   const userId = response.body._id;
+   return userId
+ };   
 
-//  // Create a new query
-//    const newquery = {
-//     email: 'usera@gmail.com',
-//     message: 'made query'
-//  };
-//  const createQuery = async ()=> {
-//     const response = await request(app)
-//     .post('/query/api')
-//     .send(newquery);
-//     return response;
-//  };
-//  createQuery(); 
-//  const queryId = async () => {
-//    const response = await createQuery();
-//    const userId = response.body._id;
-//    return userId
-//  };   
+ // Create a new query
+   const newquery = {
+    email: 'usera@gmail.com',
+    message: 'made query'
+ };
+ const createQuery = async ()=> {
+    const response = await request(app)
+    .post('/query/api')
+    .send(newquery);
+    return response;
+ };
+ createQuery(); 
+ const queryId = async () => {
+   const response = await createQuery();
+   const userId = response.body._id;
+   return userId
+ };   
 
+describe('test', () => {});
 
 // //beginning of tests
 // describe('Blogs API', () => {
