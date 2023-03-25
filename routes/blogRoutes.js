@@ -15,7 +15,7 @@ router.post('/blogs/:id/likes', requireAuth, async (req, res) => {
   const token = req.cookies.jwt;
   const blogId = req.params.id;
   jwt.verify(token, process.env.USECRET, async (err, decodedToken) => {
-    const userId = decodedToken.id;
+     const userId = decodedToken.id;
      // Check if user has already liked the post
     
     let response = await fetch(`${process.env.BASE_URL}/blogs/${blogId}/likes`)

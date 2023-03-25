@@ -3,11 +3,45 @@ const Comment = require('../models/comment');
 const commentCont = require('../controllers/commentCont');
 const mongoose = require('mongoose');
 const { requireAuth, requireSwagger } = require('../midddleware/authmiddleware'); 
-
+const Blog = require('../models/blog');
+const User = require('../models/user');
 const Crouter = express.Router();
+const jwt = require('jsonwebtoken');
+
+
+Crouter.route('/blogs/:id/comments')
+  .get( async (req, res) => {
+    const blog = await Blog.findById(req.params.id);
+    if (!blog) {
+      return res.status(404).json({ error: 'Blog post not found.' });
+    }
+    res.json({ comments: blog.comments });
+  })
+
+  .post( requireAuth, async (req, res) => {
+    const token = req.cookies.jwt;
+    const blogId = req.params.id;
+    jwt.verify(token, process.env.USECRET, async (err, decodedToken) => {
+     console.log(decodedToken);
+     let user = await User.findById(decodedToken.id);
+     const email = user.email;
+      
+       Blog.findByIdAndUpdate(
+       blogId,
+      { $push: { comments: { email: email, message: req.body.message } } },
+      { new: true }
+      )
+      .then( result => {
+        res.send({result})
+       })
+      .catch( err => {
+        console.log(err)
+      })
+   })
+})
 
 Crouter.route('/Comments')
-  .get(requireSwagger, async (req, res) => {
+  .get( async (req, res) => {
     try {
       const comments = await Comment.find();
       res.json(comments);

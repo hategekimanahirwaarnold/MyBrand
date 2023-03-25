@@ -244,11 +244,17 @@ textarea {
     font-size: 1.1vw;
     background-color: rgb(202, 202, 201);
 }
-.comment p {
+.message {
     line-height: 20px;
     padding: 0vw 1vw ;
+    background-color: rgb(202, 202, 201);
 }
 
+.sender {
+    overflow: auto;
+    color: black;
+    background-color: rgb(245, 239, 233);
+}
 
 .like {
     width: 33vw;
@@ -278,6 +284,8 @@ button {
     background: none;
     color: black;
 }
+
+
 @media (max-width: 1060px) {
     .logo {
         margin-left: 55px;

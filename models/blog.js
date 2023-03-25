@@ -20,6 +20,14 @@ const blogSchema = new Schema({
     },
     likes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     dislikes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    comments: [{
+        email: {
+            type: String,
+        },
+        message: {
+            type: String,
+        }
+    }],
     date: {
         type: String,
         required: true,

@@ -72,59 +72,44 @@ wrtnComment.addEventListener('click', function(){
 
 async function submitComment(e) {
   e.preventDefault();
-  
-  const doc = {
-      email: "h@gmail.com",
-      message: wrtnComment.value
-  };
-  if (wrtnComment.value == "") {
-    alert("Please write your comment before sending!")
-  } else {
-    await fetch('/comments', {
-        method: 'POST',
-        body: JSON.stringify(doc),
-        headers:{ 'content-type': 'application/json' }
-    });
-    location.reload();
+  try {
+    const doc = {
+        message: wrtnComment.value
+    };
+    if (wrtnComment.value == "") {
+      alert("Please write your comment before sending!")
+    } else {
+      const res = await fetch(`/blogs/${input1.dataset.doc}/comments`, {
+          method: 'POST',
+          body: JSON.stringify(doc),
+          headers:{ 'content-type': 'application/json' }
+      });
+      const data = await res.json();
+      location.reload();
+    }
+  } catch (err) {
+    console.log(err);
+    location.replace("/login");
   }
 };
 
-function addComment(e) {
-  e.preventDefault;
-  const div = document.createElement('div')
-  div.classList = 'second'
-  div.innerHTML = `
-    <img src="/comment.png" alt="">
-      <div class="comment">
-          <p> ${wrtnComment.value} </p> 
-      </div> 
-  `
-  let ideas = wrtnComment.value;
-  if (ideas !== '') {
-    console.log (ideas);
-  } else {
-    div.innerHTML= ``;
-  };
-  
-  rightSide.insertAdjacentElement('beforeend', div);
-  wrtnComment.value = "";
-  hideBtn();
-}
+
 
 const renderComments = async (e) => {
   e.preventDefault;
-  let uri = '/comments';
+  let uri = `/blogs/${input1.dataset.doc}/comments`;
 
   const res = await fetch(uri);
   const posts = await res.json();
-
+  let comment = posts.comments;
   let template ='';
-  posts.forEach(post => {
+  comment.forEach(post => {
   template += `
    <div class="second">
       <img src="/comment.png" alt="">
       <div class="comment">
-          <p> ${post.message} </p> 
+         <div class="sender"> <p> ${post.email} </p> </div>
+         <div class="message"> <p> ${post.message} </p> </div>
       </div> 
     </div>
      `
