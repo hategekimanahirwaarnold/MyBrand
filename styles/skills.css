@@ -380,6 +380,7 @@ h2 {
         margin: -40px auto auto auto;
         height: 90vh;
         overflow: auto;
+        width: 100vw;
     }
     .left-side {
         margin: auto;

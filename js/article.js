@@ -8,15 +8,58 @@ const rightSide = document.querySelector('.right-side');
 const body = document.querySelector('body');
 const commentSection = document.querySelector('.commentSection');
 
-likebtn.addEventListener('click',()=>  {
-    input1.value = parseInt(input1.value) + 1;
-    input1.style.color = "green";
-    likebtn.style.color = "green";
-})
-dislikebtn.addEventListener('click',()=> {
-    input2.value = parseInt(input2.value) + 1;
-})
+const submitLike = async () => {
 
+  try {
+    const res = await fetch(`/blogs/${input1.dataset.doc}/likes`, {
+      method: 'POST',
+      headers:{ 'content-type': 'application/json' }
+    });
+    const data = await res.json();
+    location.reload();
+  } catch (err) {
+    console.log(err);
+    location.replace("/login");
+  }
+
+}
+likebtn.addEventListener('click', submitLike);
+
+const renderLikes = async() => {
+    const res = await fetch(`/blogs/${input1.dataset.doc}/likes`);
+    const like = await res.json();
+    input1.value= like.likes.length
+    if (input1.value > 0) {
+      input1.style.color = "green";
+      likebtn.style.color = "green";
+    }
+}
+document.addEventListener("DOMContentLoaded", renderLikes);
+
+
+const submitDisike = async () => {
+
+  try {
+    const res = await fetch(`/blogs/${input1.dataset.doc}/dislikes`, {
+      method: 'POST',
+      headers:{ 'content-type': 'application/json' }
+    });
+    const data = await res.json();
+    location.reload();
+  } catch (err) {
+    console.log(err);
+    location.replace("/login");
+  }
+
+}
+dislikebtn.addEventListener('click', submitDisike);
+
+const renderDisikes = async() => {
+    const res = await fetch(`/blogs/${input1.dataset.doc}/dislikes`);
+    const dislike = await res.json();
+    input2.value= dislike.dislikes.length
+}
+document.addEventListener("DOMContentLoaded", renderDisikes);
 
 function hideBtn(){
   submitBtn.style.display = '';
@@ -60,7 +103,6 @@ function addComment(e) {
   if (ideas !== '') {
     console.log (ideas);
   } else {
-    console.log ("there is no idea");
     div.innerHTML= ``;
   };
   

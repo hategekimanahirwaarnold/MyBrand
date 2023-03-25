@@ -2,6 +2,9 @@ const Blog = require('../models/blog');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
+const User = require('../models/user');
+
+
 
 cloudinary.config({
    cloud_name: process.env.CLOUD_NAME,
@@ -19,7 +22,6 @@ function formatInputDate(dateInput) {
        month: "long",
        day: "numeric",
    });
-   console.log(formattedDate);
    return formattedDate;
  };
 

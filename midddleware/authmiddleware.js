@@ -6,7 +6,7 @@ const requireAuth = (req, res, next) => {
 
     //check json web token exists & is verified
     if (token) {
-       jwt.verify(token, process.env.USECRET, (err, decodedToken) => {
+       jwt.verify(token, process.env.USECRET, async (err, decodedToken) => {
          if (err) {
             const acceptHeader = req.get('Accept');
             if (acceptHeader === 'application/json') {
@@ -15,6 +15,7 @@ const requireAuth = (req, res, next) => {
             res.redirect('/login');
          } else {
             console.log(decodedToken);
+            let user = await User.findById(decodedToken.id);
             next()
          }
        })
@@ -33,10 +34,8 @@ const checkUser = (req, res, next) => {
             console.log(err.message);
             res.locals.user = null;
          } else {
-            console.log(decodedToken);
             let user = await User.findById(decodedToken.id);
             res.locals.user = user;
-            console.log(user);
          }; 
          next();
       })

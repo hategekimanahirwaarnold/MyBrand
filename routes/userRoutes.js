@@ -16,7 +16,7 @@ urouter.get('/logout', authCont.logout_get);
 urouter.get('/accounts', authCont.getAllUsers);
 
 
-  const maxAge = 7 * 24 * 60 * 60;
+  const maxAge = 1 * 24 * 60 * 60;
   const createToken = (id) => {
       return jwt.sign({ id }, process.env.USECRET, {
           expiresIn: maxAge

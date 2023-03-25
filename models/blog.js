@@ -18,6 +18,8 @@ const blogSchema = new Schema({
         type: String,
         required: true,
     },
+    likes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    dislikes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     date: {
         type: String,
         required: true,

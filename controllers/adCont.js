@@ -31,7 +31,7 @@ const handleErrors = (err) => {
 
    return errors;
 };
-const maxAge = 7 * 24 * 60 * 60;
+const maxAge = 1 * 24 * 60 * 60;
 const createToken = (id) => {
     return Adjwt.sign({ id }, process.env.SECRET, {
         expiresIn: maxAge

@@ -398,7 +398,7 @@ i {
     .below-nav {
         display: grid;
         gap: 30px;
-        width: 85vw;
+        width: 100vw;
         margin: -40px auto 0 auto;
         overflow: auto;
         height: 90vh;

@@ -162,7 +162,7 @@ nav ul li a:hover {
     display: block;
     justify-content: space-evenly;
     font-size: 1vw;
-    width: 32vw;
+    width: 30vw;
     height: 6vh;
     margin: auto;
 }
@@ -307,7 +307,6 @@ button {
     .left-side header {
         font-size: 1.3vw;
         justify-content: space-around;
-        width: 41vw;
     }
     article {
         font-size: 1.5vw;
@@ -436,9 +435,10 @@ button {
         display: block;
         opacity: 100%;
         background: none;
-        margin: 0 auto;
+        margin: -40px auto 0 auto;
         width: 87vw;
-        height: 100vh;
+        height: 90vh;
+        overflow: auto;
     }
     .left-side {
         height: 120vw;

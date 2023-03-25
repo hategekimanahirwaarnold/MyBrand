@@ -34,13 +34,7 @@ passport.use(new GoogleStrategy({
   User.findOne({ email: profile.emails[0].value })
   .then((currentUser) => {
     if (currentUser) {
-      // already have the user
-      console.log('user is:', currentUser);
-      const token = createToken(currentUser._id);
-      console.log( 'token is:', token);
-      console.log();
-      //res.send('the current one');
-      //res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+      console.log('User is' + currentUser);
       done(null, currentUser);
     } else {
       // create a new user in db
@@ -49,9 +43,6 @@ passport.use(new GoogleStrategy({
         password: profile.id
       }).save().then((newUser) => {
         console.log('new user created' + newUser);
-        const token = createToken(newUser._id);
-        console.log(token);
-       // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         done(null, newUser);
       });
     }

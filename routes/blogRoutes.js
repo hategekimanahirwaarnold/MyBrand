@@ -6,6 +6,110 @@ const blogCont = require('../controllers/blogCont');
 const { verifyToken } = require('../midddleware/adminMiddleware'); 
 const multer = require('multer');
 const fs = require('fs');
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+
+
+
+router.post('/blogs/:id/likes', requireAuth, async (req, res) => {
+  const token = req.cookies.jwt;
+  const blogId = req.params.id;
+  jwt.verify(token, process.env.USECRET, async (err, decodedToken) => {
+    const userId = decodedToken.id;
+     // Check if user has already liked the post
+    
+    let response = await fetch(`${process.env.BASE_URL}/blogs/${blogId}/likes`)
+    const responseBody = await response.text();
+    let data = JSON.parse(responseBody);
+    let likers = data.likes
+    if (likers.includes(userId)) {
+      const valueToRemove = userId;
+      likers = likers.filter(item => item !== valueToRemove);
+
+      Blog.findByIdAndUpdate(
+       blogId,
+       { likes: likers},
+       { new: true } 
+      )
+      .then(updatedBlog => res.send({ updatedBlog }))
+      .catch(error => console.error(error));
+
+    } else {
+      // Use the user ID to perform the like action,
+      Blog.findByIdAndUpdate(
+      blogId,
+      { $push: { likes: decodedToken.id } },
+      { new: true }
+      ) 
+      .then(result => {
+        res.json({ likes: result });
+        })
+      .catch (err => {
+        console.log(err);
+        });
+    }
+})
+})
+
+router.post('/blogs/:id/dislikes', requireAuth, async (req, res) => {
+  const token = req.cookies.jwt;
+  const blogId = req.params.id;
+  jwt.verify(token, process.env.USECRET, async (err, decodedToken) => {
+    const userId = decodedToken.id;
+    
+    let response = await fetch(`${process.env.BASE_URL}/blogs/${blogId}/dislikes`)
+    const responseBody = await response.text();
+    let data = JSON.parse(responseBody);
+    let dislikers = data.dislikes;
+    if (dislikers.includes(userId)) {
+      const valueToRemove = userId;
+      dislikers = dislikers.filter(item => item !== valueToRemove);
+
+      Blog.findByIdAndUpdate(
+       blogId,
+       { dislikes: dislikers},
+       { new: true } 
+      )
+      .then(updatedBlog => res.send({ updatedBlog }))
+      .catch(error => console.error(error));
+
+    } else {
+      // Use the user ID to perform the like action,
+      Blog.findByIdAndUpdate(
+      blogId,
+      { $push: { dislikes: decodedToken.id } },
+      { new: true }
+      ) 
+      .then(result => {
+        res.json({ dislikes: result });
+        })
+      .catch (err => {
+        console.log(err);
+        });
+    }
+})
+})
+
+
+router.get('/blogs/:id/likes', async (req, res) => {
+  const blog = await Blog.findById(req.params.id);
+
+  if (!blog) {
+    return res.status(404).json({ error: 'Blog post not found.' });
+  }
+
+  res.json({ likes: blog.likes });
+});
+
+router.get('/blogs/:id/dislikes', async (req, res) => {
+  const blog = await Blog.findById(req.params.id);
+
+  if (!blog) {
+    return res.status(404).json({ error: 'Blog post not found.' });
+  }
+
+  res.json({ dislikes: blog.dislikes });
+});
 
 // set up multer storage engine
 const storage = multer.diskStorage({

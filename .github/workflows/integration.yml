@@ -45,7 +45,7 @@ jobs:
       CLOUD_KEY: ${{ secrets.CLOUD_KEY }}
       CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
       NODE_ENV: ${{ secrets.NODE_ENV }}
-
+      BASE_URL: ${{ secrets.BASE_URL }}
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
