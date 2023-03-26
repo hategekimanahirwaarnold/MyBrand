@@ -102,6 +102,23 @@ app.get('/portfolio', (req,res)=> {
   res.render('portfolio');
 });
 
+app.get('/websites', (req,res)=> {
+  res.render('websites');
+});
+
+app.get('/arts', (req,res)=> {
+  res.render('arts');
+});
+
+
+app.get('/pictures', (req,res)=> {
+  res.render('pictures');
+});
+
+app.get('/videos', (req,res)=> {
+  res.render('videos');
+});
+
 app.get('/article', (req,res)=> {
   res.render('article');
 });

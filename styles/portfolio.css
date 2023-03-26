@@ -161,8 +161,15 @@ nav ul li a:hover {
     gap: 0vw;
     width: 90vw;
     height: 600px;
+    transition: all .4s;
 }
-
+.links {
+    color: black;
+    text-decoration: none;
+}
+.links:hover {
+    color: white;
+}
 .left-side  {
     display: grid;
     grid-gap: 3vw;
