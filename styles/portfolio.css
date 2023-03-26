@@ -135,6 +135,24 @@ nav ul li a:hover {
     display: none;
 }
 
+.contAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85vh;
+    overflow: auto;
+}
+
+.contAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85vh;
+    overflow: auto;
+}
+
 .below-nav {
     margin: auto;
     display: flex;
@@ -333,7 +351,13 @@ nav ul li a:hover {
     .home {
         display: inline;
     }
-   
+    .contAll {
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        padding: 0;
+        overflow: initial;
+    }
     .below-nav {
         display: grid;
         gap: 6vw;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,66 +9,81 @@
     <link rel="stylesheet" href="/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    <div class="img-side"><p></p></div>
-    <div class="begin">   
-       <header>
+    <div class="img-side">
+        <p></p>
+    </div>
+    <div class="begin">
+        <header>
             <div class="inTop">
-                <div class="opener"><label for="check"  class="fa fa-bars" id="menu-icon"></label></div>
-                <a class="logo active"  href="/"><i id="fa" class="fa fa-home"></i>Hirwa</a>
+                <div class="opener"><label for="check" class="fa fa-bars" id="menu-icon"></label></div>
+                <a class="logo active" href="/"><i id="fa" class="fa fa-home"></i>Hirwa</a>
                 <div class="pimage"></div>
             </div>
             <nav>
                 <ul class="navBar">
-                    <li class="home"><a href="/" class="active"><i id="fb"  class="fa fa-home"></i>HIRWA</a></li>
-                    <li><a href="/about" ><i id="fc"  class="fa fa-address-book" aria-hidden="true"></i> About Me</a></li>
-                    <li><a href="/skills"><i id="fd"  class="fa fa-lightbulb-o"></i>Skills</a></li>
-                    <li><a href="/portfolio"><i id="fe"  class="fa fa-briefcase"></i> Portfolio</a></li>
-                    <li><a href="/blogs"><i id="ff"  class="fa fa-th-large"></i>Blogs</a></li> 
-                    <li><a href="/contact"><i id="fg"  class="fa fa-usb"></i>Contact Me</a></li>
+                    <li class="home"><a href="/" class="active"><i id="fb" class="fa fa-home"></i>HIRWA</a></li>
+                    <li><a href="/about"><i id="fc" class="fa fa-address-book" aria-hidden="true"></i> About Me</a></li>
+                    <li><a href="/skills"><i id="fd" class="fa fa-lightbulb-o"></i>Skills</a></li>
+                    <li><a href="/portfolio"><i id="fe" class="fa fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="/blogs"><i id="ff" class="fa fa-th-large"></i>Blogs</a></li>
+                    <li><a href="/contact"><i id="fg" class="fa fa-usb"></i>Contact Me</a></li>
                 </ul>
             </nav>
         </header>
-        <div class="nav-img"><p></p></div>
-    </div> 
-            <div class="below-nav">
-                <div class="left-side">
-                    <img src="/profile.jpg" alt="">
-                    <div class="below-profile">
-                        <div class="name"><p>Arnold Hategekimana Hirwa </p> </div> 
-                        <div class="job"><p> Software Developer</p></div>
-                        
+        <div class="nav-img">
+            <p></p>
+        </div>
+    </div>
+    <div class="contAll">
+        <div class="below-nav">
+            <div class="left-side">
+                <img src="/profile.jpg" alt="">
+                <div class="below-profile">
+                    <div class="name">
+                        <p>Arnold Hategekimana Hirwa </p>
                     </div>
+                    <div class="job">
+                        <p> Software Developer</p>
+                    </div>
+    
                 </div>
-                <div class="right-side">
-                    <div class="education">
-                       <p class="p1">“Education  is  what  remains  after</p>
-                       <p class="p2"> &nbsp one has forgotten what one</p> 
-                       <p class="p3"> &nbsp has  learned  in  school”</p>
-                        
-                    </div>
-                    <img src="/comp.png" class="comp" alt="">
-                    <div class="login">  
-                       
-                        <% if (user) { %>
-                            <p class="Euser">Welcome, <%= user.email %> </p> 
-                            <a href="/logout" id="fk" ><i class="fa fa-sign-out"></i>Logout</a>
-                        <% } else { %> 
+            </div>
+            <div class="right-side">
+                <div class="education">
+                    <p class="p1">“Education is what remains after</p>
+                    <p class="p2"> &nbsp one has forgotten what one</p>
+                    <p class="p3"> &nbsp has learned in school”</p>
+    
+                </div>
+                <img src="/comp.png" class="comp" alt="">
+                <div class="login">
+    
+                    <% if (user) { %>
+                        <p class="Euser">Welcome, <%= user.email %>
+                        </p>
+                        <a href="/logout" id="fk"><i class="fa fa-sign-out"></i>Logout</a>
+                        <% } else { %>
                             <p class="log1"><a href="/login">login/ Sign in</a> and see </p>
-                            <p class="log2">what remained in Hirwa's </p> 
+                            <p class="log2">what remained in Hirwa's </p>
                             <div class="witharrow">
                                 <p class="log3">mindset </p>
                                 <img src="/arrow.png" class="arrow" alt="">
                             </div>
-                       <% } %>
-                    </div>
+                            <% } %>
                 </div>
-                <div class="pimage2"></div>
             </div>
-        
-    <div class="img-right"><p></p></div>
-    
+            <div class="pimage2"></div>
+        </div>
+    </div>
+
+    <div class="img-right">
+        <p></p>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="/home.js"></script>
 </body>
+
 </html>

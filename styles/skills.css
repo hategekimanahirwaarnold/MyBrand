@@ -134,10 +134,19 @@ nav ul li a:hover {
  #fa, #fb, #fc, #fd,#fe, #ff, #fg, .pimage, .pimage2, .opener {
     display: none;
 }
+
+.contAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85vh;
+    overflow: auto;
+}
   
 
 .below-nav {
-    margin: 20px auto;
+    margin: auto;
     display: flex;
     text-align: center;
     justify-content: space-evenly;
@@ -370,6 +379,13 @@ h2 {
    
     .home {
         display: inline;
+    }
+    .contAll {
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        padding: 0;
+        overflow: initial;
     }
    
     .below-nav {

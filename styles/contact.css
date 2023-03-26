@@ -135,10 +135,19 @@ nav ul li a:hover {
     display: none;
 }
 
+.contAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85vh;
+    overflow: auto;
+}
+
 .below-nav {
     display: grid;
     padding: 0;
-    margin: 60px auto 0 auto;
+    margin: auto;
     gap: 0;
 }
 .subscribe {
@@ -333,6 +342,13 @@ textarea {
    
     .home {
         display: inline;
+    }
+    .contAll {
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        padding: 0;
+        overflow: initial;
     }
    
     .below-nav{
