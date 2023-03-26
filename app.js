@@ -44,7 +44,6 @@ const swaggerUi = require('swagger-ui-express');
 
 
 // connect to mongoDb
-
 mongoose
   .connect(process.env.NODE_ENV_CUSTOM == 'dev' ? process.env.DB_URI : process.env.DB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen('3016', () => {
@@ -109,7 +108,6 @@ app.get('/websites', (req,res)=> {
 app.get('/arts', (req,res)=> {
   res.render('arts');
 });
-
 
 app.get('/pictures', (req,res)=> {
   res.render('pictures');
