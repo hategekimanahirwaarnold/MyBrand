@@ -138,11 +138,10 @@ nav ul li a:hover {
 .below-nav {
     margin: auto;
     display: flex;
-    margin-left: 0vw;
     text-align: center;
     justify-content: space-evenly;
     gap: 0vw;
-    width: 100vw;
+    width: 90vw;
     height: 600px;
 }
 
