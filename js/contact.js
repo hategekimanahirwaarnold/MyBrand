@@ -13,13 +13,22 @@ const submitQuery = async (e) => {
     if (query.value == "") {
         alert("Please write your message before sending!")
     } else {
-        await fetch('/query/api', {
-            method: 'POST',
-            body: JSON.stringify(doc),
-            headers:{ 'content-type': 'application/json' }
-        });
-        alert("Your message was succussfully sent; thank you for reaching on us!");
-        location.reload();
+       try {
+            const res=  await fetch('/query/api', {
+                method: 'POST',
+                body: JSON.stringify(doc),
+                headers:{ 'content-type': 'application/json' }
+            });
+            const data = await res.json();
+            if(data.errors) {
+                console.log('there are some errors in your email');
+            } else {
+                alert("Your message was succussfully sent; thank you for reaching on us!");
+                location.reload();
+            }
+       } catch (error) {
+           alert('Please write a valid email!');
+       }
     }
 };
 submitBtn.addEventListener('click', submitQuery)
