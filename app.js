@@ -109,7 +109,7 @@ app.get('/arts', (req,res)=> {
   res.render('arts');
 });
 
-app.get('/pictures', (req,res)=> {
+app.get('/pictures', requireAuth, (req,res)=> {
   res.render('pictures');
 });
 
