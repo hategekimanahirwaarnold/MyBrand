@@ -166,6 +166,9 @@ nav ul li a:hover {
     margin: 0 auto;
     height: 80vh;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .left-side header {
     display: block;
@@ -173,7 +176,7 @@ nav ul li a:hover {
     font-size: 1vw;
     width: 30vw;
     height: 6vh;
-    margin: auto;
+    margin: 0;
 }
 h3 {
     text-transform: uppercase;
@@ -337,10 +340,13 @@ button {
         display: flex;
         justify-content: space-evenly;
     }
+    figure {
+        width: 35vw;
+    }
    figure img {
-    width: 32vw;
+    width: 100%;
     height: 15vw;
-    margin: 0;
+    margin: auto;
    }
    .right-side img {
        object-fit: cover;
@@ -447,19 +453,13 @@ button {
         display: inline;
     }
     .contAll {
-        width: fit-content;
-        height: fit-content;
-        margin: 0;
-        padding: 0;
-        overflow: initial;
+        margin: -65px auto auto auto;
     }
-   
     .below-nav {
         box-shadow: none;
         display: block;
         opacity: 100%;
         background: none;
-        margin: -40px auto 0 auto;
         width: 87vw;
         height: 90vh;
         overflow: auto;
@@ -468,6 +468,7 @@ button {
         height: 120vw;
         width: 82vw;
         margin: auto;
+        padding: 0;
     }
     .left-side header {
         display: grid;
@@ -477,8 +478,10 @@ button {
         width: 73vw;
         height: fit-content;
     } 
+   figure {
+    width: 95%;
+   }
    figure img {
-    width: 63vw;
     height: 30vw;
     margin: 0;
    }
