@@ -465,7 +465,6 @@ button {
         overflow: auto;
         margin: 0;
         padding: 0;
-        border: solid red;
     }
     .left-side {
         overflow-x: initial;
