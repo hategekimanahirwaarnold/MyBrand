@@ -157,7 +157,6 @@ nav ul li a:hover {
     display: flex;
     margin: auto;
     height: 600px;
-    justify-content: space-evenly;
 }
 .left-side  {
     overflow: auto;
@@ -227,7 +226,7 @@ nav ul li a:hover {
 .cycle-2 {
     height: 90px;
     width: 290px;
-    background: url("/datamanager.jfif");
+    background: url("/math.jpg");
     background-size: cover;
     background-position: center;
     object-fit: cover;
@@ -238,7 +237,7 @@ nav ul li a:hover {
 .cycle-3 {
     height: 90px;
     width: 290px;
-    background: url("/datamanager.jfif");
+    background: url("/inCamp2.JPG");
     background-size: cover;
     background-position: center;
     object-fit: cover;
@@ -281,7 +280,7 @@ nav ul li a:hover {
     }
    
     .post:nth-child(even) {
-        margin-left: 55px;
+        margin-left: 45px;
     }
     .post:nth-child(odd) {
         margin-left: 0;
