@@ -460,14 +460,18 @@ button {
         display: block;
         opacity: 100%;
         background: none;
-        width: 87vw;
+        width: 100vw;
         height: 90vh;
         overflow: auto;
+        margin: 0;
+        padding: 0;
+        border: solid red;
     }
     .left-side {
+        overflow-x: initial;
         height: 120vw;
-        width: 82vw;
-        margin: auto;
+        width: 100vw;
+        margin: 0;
         padding: 0;
     }
     .left-side header {
@@ -480,16 +484,19 @@ button {
     } 
    figure {
     width: 95%;
+    margin: 0 auto 0 auto;
+    text-align: center;
    }
    figure img {
     height: 30vw;
-    margin: 0;
+    margin: 0 auto 0 auto;
+    width: 90%;
    }
     article {
         font-size: 3.3vw;
-        margin-top: -2vw;
+        margin: -2vw auto 0 auto;
         line-height: 4.5vw;
-        width: 79vw;
+        width: 85%;
     }
     .like {
         width: 43vw;

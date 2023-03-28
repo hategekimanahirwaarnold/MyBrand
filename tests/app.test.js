@@ -396,5 +396,3 @@ describe('test', () => {
           expect(getResponse.status).toBe(404);
     }, 10000);
  })
-
-

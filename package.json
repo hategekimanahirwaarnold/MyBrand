@@ -4,7 +4,7 @@
   "main": "modules.js",
   "scripts": {
     "start": "node app",
-    "test": "jest --forceExit --detectOpenHandles"
+    "test": "--detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
