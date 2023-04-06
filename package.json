@@ -4,7 +4,7 @@
   "main": "modules.js",
   "scripts": {
     "start": "node app",
-    "test": "--detectOpenHandles"
+    "test": "--detectOpenHandles --watchAll"
   },
   "author": "",
   "license": "ISC",

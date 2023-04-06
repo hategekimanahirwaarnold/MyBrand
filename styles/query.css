@@ -94,6 +94,7 @@ nav ul li a:hover {
 }
 .right {
     margin-top: 35px;
+    display: none;
 }
 .inquiry {
     width: 400px;
@@ -139,6 +140,7 @@ textarea {
     width: fit-content;
     height: fit-content;
     margin: auto;
+    display: none;
 }
 i {
     margin: auto;
@@ -148,9 +150,6 @@ i {
 }
 .Btn {
     margin: auto;
-}
-#replyBtn p {
-    font-size: ;
 }
 
 @media (max-width: 1060px) {
