@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 html {
     margin: 0px;
     padding: 0px;
@@ -21,6 +22,7 @@ body {
     position: relative;
     min-width: 300px;
 }
+
 .img-side {
     padding: 0;
     background: url("/colors-Rw.jfif") repeat;
@@ -46,12 +48,14 @@ body {
     position: absolute;
     height: 100%
 }
+
 .begin {
     display: grid;
     height: 100px;
     margin: 0px 0 0 0;
     margin: 0;
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -59,6 +63,7 @@ header {
     padding: 20px 0 0em 0;
     margin-top: 0em;
 }
+
 .nav-img {
     background-image: url("/colors-Rw.jfif");
     width: 100%;
@@ -66,12 +71,15 @@ header {
     margin: 0px 0 0 0;
     padding: 0;
 }
+
 .inTop {
     display: flex;
 }
+
 .begin img {
     display: none;
 }
+
 .opener {
     font-size: 2.5em;
     color: black;
@@ -79,6 +87,7 @@ header {
     padding: 0;
     display: none;
 }
+
 #menu-icon {
     cursor: pointer;
 }
@@ -95,14 +104,15 @@ header {
 
 .logo:hover {
     background-color: white;
- /*   box-shadow: 3px -3px gray; */
+    /*   box-shadow: 3px -3px gray; */
     border-radius: .4em;
     color: gray;
 }
+
 .home {
     font-size: 25px;
     display: none;
-} 
+}
 
 nav {
     margin-right: 4em;
@@ -123,15 +133,27 @@ nav ul li a {
     border-radius: .3em;
     transition: all .3s;
 }
+
 nav ul li a:hover {
     background-color: white;
     color: gray;
 }
+
 .active {
     background-color: gray;
     color: white;
 }
- #fa, #fb, #fc, #fd,#fe, #ff, #fg, .pimage, .pimage2, .opener {
+
+#fa,
+#fb,
+#fc,
+#fd,
+#fe,
+#ff,
+#fg,
+.pimage,
+.pimage2,
+.opener {
     display: none;
 }
 
@@ -150,6 +172,7 @@ nav ul li a:hover {
     margin: auto;
     gap: 0;
 }
+
 .subscribe {
     margin: auto;
     height: 420px;
@@ -158,6 +181,7 @@ nav ul li a:hover {
     border-radius: .8vw;
     box-shadow: -2px -2px 2px 2px gray;
 }
+
 .usb {
     width: 130px;
     background-attachment: fixed;
@@ -166,23 +190,28 @@ nav ul li a:hover {
     height: 400px;
     margin: auto;
 }
+
 .writing {
     padding: 0 0 0vw 0;
     display: grid;
     gap: 2vw;
 }
+
 .sentence {
     font-size: 23px;
     width: 420px;
     text-align: center;
     margin: 10px 0 0 30px;
 }
+
 .writing img {
     height: 60px;
     width: 60px;
     margin: -1.5vw 0 0 0;
 }
-.name, .email {
+
+.name,
+.email {
     display: flex;
     gap: 15px;
     margin: 0vw 0 0vw 10px;
@@ -223,14 +252,17 @@ textarea {
     transition: all .3s;
     cursor: pointer;
 }
+
 .subscribe button:hover {
     color: white;
 }
+
 .social {
     margin: 40px auto 0 auto;
     display: flex;
     gap: 40px;
 }
+
 .social a img {
     height: 50px;
 }
@@ -240,22 +272,28 @@ textarea {
         gap: 1em;
         margin-right: 0px;
     }
+
     nav ul li a {
         font-size: 2.3vw;
         padding: .3em;
     }
+
     .logo {
         font-size: 3.2vw;
     }
-    .img-right, .img-side {
+
+    .img-right,
+    .img-side {
         width: 2.3em;
     }
 }
+
 @media all and (max-width: 750px) {
-  .begin .top {
+    .begin .top {
         gap: 10px;
     }
-     .pimage {
+
+    .pimage {
         background: url("/colors-Rw\ 3.jfif") repeat;
         padding: 0;
         background-position: top;
@@ -267,6 +305,7 @@ textarea {
         width: 80vw;
         opacity: 10%;
     }
+
     .pimage2 {
         background: url("/colors-Rw\ 3.jfif") repeat;
         padding: 0;
@@ -280,7 +319,8 @@ textarea {
         opacity: 10%;
         position: relative;
     }
-   .opener {
+
+    .opener {
         color: black;
         font-size: 8vw;
         cursor: pointer;
@@ -292,29 +332,40 @@ textarea {
         margin: -20px 0 0 6vw;
         top: 0;
     }
-    #fa, #fb, #fc, #fd,#fe, #ff, #fg {
+
+    #fa,
+    #fb,
+    #fc,
+    #fd,
+    #fe,
+    #ff,
+    #fg {
         display: inline;
     }
-    
-    .img-right, .img-side {
-        opacity:20%;
+
+    .img-right,
+    .img-side {
+        opacity: 20%;
         top: 0;
         width: 6vw;
         bottom: 0;
         background-attachment: fixed;
     }
-   .nav-img {
+
+    .nav-img {
         display: none;
     }
+
     .logo {
         display: none;
     }
-   
+
     header {
         display: grid;
         gap: 2em;
     }
-  .navBar {
+
+    .navBar {
         background: url("/background-all") no-repeat;
         display: grid;
         gap: 0em;
@@ -330,19 +381,21 @@ textarea {
         height: 85vh;
         overflow: auto;
     }
-    
-    nav ul li{
+
+    nav ul li {
         margin: auto auto auto 20vw;
         height: fit-content;
     }
-    nav ul li a{
+
+    nav ul li a {
         font-size: 5vw;
         padding: auto;
     }
-   
+
     .home {
         display: inline;
     }
+
     .contAll {
         width: fit-content;
         height: fit-content;
@@ -350,65 +403,75 @@ textarea {
         padding: 0;
         overflow: initial;
     }
-   
-    .below-nav{
+
+    .below-nav {
         margin: 0;
         margin: -40px auto auto auto;
         height: 90vh;
         width: 100vw;
         overflow: auto;
     }
+
     .subscribe {
         margin: 10px auto;
         height: 500px;
         width: 83vw;
     }
+
     .usb {
         width: 15vw;
         height: 350px;
         margin: auto;
     }
+
     .writing {
         padding: 2.7vw 0 0vw 3vw;
         display: grid;
         gap: 2vw;
     }
+
     .sentence {
         width: 50vw;
         text-align: center;
         font-size: 4vw;
         margin: 0 auto;
     }
+
     .writing img {
         height: 9vw;
         width: 9vw;
         margin: -3vw 0 0 0;
     }
-    .name, .email {
+
+    .name,
+    .email {
         margin: 0;
     }
-    
+
     input {
         height: 30px;
         width: 45vw;
         font-size: 12px;
     }
+
     textarea {
         font-size: 12px;
         height: 150px;
         width: 45vw;
     }
-    
+
     .subscribe button {
         margin: auto;
         font-size: 3.5vw;
     }
+
     .social {
         display: flex;
         gap: 5vw;
     }
+
     .social a img {
         height: 7vw;
     }
-    
+
 }

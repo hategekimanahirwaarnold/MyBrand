@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 html {
     margin: 0px;
     padding: 0px;
@@ -21,6 +22,7 @@ body {
     position: relative;
     min-width: 300px;
 }
+
 .img-side {
     padding: 0;
     background: url("/colors-Rw.jfif") repeat;
@@ -46,12 +48,14 @@ body {
     position: absolute;
     height: 100%
 }
+
 .begin {
     display: grid;
     height: 100px;
     margin: 0px 0 0 0;
     margin: 0;
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -59,6 +63,7 @@ header {
     padding: 20px 0 0em 0;
     margin-top: 0em;
 }
+
 .nav-img {
     background-image: url("/colors-Rw.jfif");
     width: 100%;
@@ -66,12 +71,15 @@ header {
     margin: 0px 0 0 0;
     padding: 0;
 }
+
 .inTop {
     display: flex;
 }
+
 .begin img {
     display: none;
 }
+
 .opener {
     font-size: 2.5em;
     color: black;
@@ -79,6 +87,7 @@ header {
     padding: 0;
     display: none;
 }
+
 #menu-icon {
     cursor: pointer;
 }
@@ -96,14 +105,15 @@ header {
 
 .logo:hover {
     background-color: white;
- /*   box-shadow: 3px -3px gray; */
+    /*   box-shadow: 3px -3px gray; */
     border-radius: .4em;
     color: gray;
 }
+
 .home {
     font-size: 25px;
     display: none;
-} 
+}
 
 nav {
     margin-right: 4em;
@@ -124,15 +134,27 @@ nav ul li a {
     border-radius: .3em;
     transition: all .3s;
 }
+
 nav ul li a:hover {
     background-color: white;
     color: gray;
 }
+
 .active {
     background-color: gray;
     color: white;
 }
- #fa, #fb, #fc, #fd,#fe, #ff, #fg, .pimage, .pimage2, .opener {
+
+#fa,
+#fb,
+#fc,
+#fd,
+#fe,
+#ff,
+#fg,
+.pimage,
+.pimage2,
+.opener {
     display: none;
 }
 
@@ -140,7 +162,7 @@ nav ul li a:hover {
     background-image: url("/A\ book\ 2-my\ brand\ \(2\).jfif");
     background-repeat: no-repeat;
     border-radius: 1vw;
-    background-size:cover;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
     object-fit: cover;
@@ -151,7 +173,8 @@ nav ul li a:hover {
     height: 600px;
     overflow: auto;
 }
-.left-side  {
+
+.left-side {
     height: 100%;
     padding: 0;
     padding-left: 50px;
@@ -163,12 +186,14 @@ nav ul li a:hover {
     width: 100%;
     margin: auto;
 }
+
 .blogs {
     padding: 0;
     margin: 0;
     width: fit-content;
     height: fit-content;
 }
+
 .left-side .post {
     height: 270px;
     width: 320px;
@@ -183,7 +208,8 @@ nav ul li a:hover {
 .post:nth-child(even) {
     margin-left: 120px;
 }
-.below-nav header{
+
+.below-nav header {
     text-transform: uppercase;
     margin: -10px auto 10px auto;
     font-size: 15px;
@@ -192,6 +218,7 @@ nav ul li a:hover {
     width: fit-content;
     height: fit-content;
 }
+
 .cycle {
     height: 90px;
     width: 290px;
@@ -203,18 +230,22 @@ nav ul li a:hover {
     margin: auto auto 10px auto;
     border: .2vw solid black;
 }
-.p, .p2 {
+
+.p,
+.p2 {
     margin: 0 auto;
     height: 100px;
     width: 290px;
     font-size: 12px;
     overflow-y: auto;
 }
+
 .below-nav a {
     margin: 10px auto;
     font-size: 12px;
     color: blue;
 }
+
 .cycle-2 {
     height: 90px;
     width: 290px;
@@ -226,6 +257,7 @@ nav ul li a:hover {
     margin: auto auto 10px auto;
     border: .2vw solid black;
 }
+
 .cycle-3 {
     height: 90px;
     width: 290px;
@@ -237,6 +269,7 @@ nav ul li a:hover {
     margin: auto auto 10px auto;
     border: .2vw solid black;
 }
+
 .cycle-4 {
     height: 90px;
     width: 290px;
@@ -253,48 +286,62 @@ nav ul li a:hover {
     .logo {
         margin-left: 55px;
     }
+
     nav ul li a {
         font-size: 19px;
         padding: 5px;
-    } 
-    .img-side, .img-right {
+    }
+
+    .img-side,
+    .img-right {
         width: 2.3em;
     }
+
     nav ul {
         gap: 1em;
         margin-right: 0px;
     }
-    
+
     .below-nav {
         width: 700px;
     }
-    .left-side .post{
+
+    .left-side .post {
         width: 280px;
     }
-   
+
     .post:nth-child(even) {
         margin-left: 45px;
     }
+
     .post:nth-child(odd) {
         margin-left: 0;
     }
+
     .left-side {
         padding: 0px 0 10px 37px;
     }
-    .cycle, .cycle-2, .cycle-3, .cycle-4 {
+
+    .cycle,
+    .cycle-2,
+    .cycle-3,
+    .cycle-4 {
         width: 270px;
     }
-    .p, .p2 {
+
+    .p,
+    .p2 {
         width: 270px;
     }
-    
+
 }
 
 @media all and (max-width: 780px) {
-  .begin .top {
+    .begin .top {
         gap: 10px;
     }
-     .pimage {
+
+    .pimage {
         background: url("/colors-Rw\ 3.jfif") repeat;
         padding: 0;
         background-position: top;
@@ -306,6 +353,7 @@ nav ul li a:hover {
         width: 80vw;
         opacity: 10%;
     }
+
     .pimage2 {
         background: url("/colors-Rw\ 3.jfif") repeat;
         padding: 0;
@@ -319,7 +367,9 @@ nav ul li a:hover {
         opacity: 10%;
         position: relative;
     }
-   .opener {
+
+    .opener {
+        border: none;
         color: black;
         font-size: 8vw;
         cursor: pointer;
@@ -328,29 +378,40 @@ nav ul li a:hover {
         height: fit-content;
         display: inline;
         padding: 0;
-        margin: -20px 0 0 6vw;
+        margin: -14px 0 0 6vw;
         top: 0;
     }
-    #fa, #fb, #fc, #fd,#fe, #ff, #fg {
+
+    #fa,
+    #fb,
+    #fc,
+    #fd,
+    #fe,
+    #ff,
+    #fg {
         display: inline;
     }
-    
-    .img-right, .img-side {
-        opacity:20%;
+
+    .img-right,
+    .img-side {
+        opacity: 20%;
         background-attachment: fixed;
         width: 6vw;
     }
-     .nav-img {
+
+    .nav-img {
         display: none;
     }
+
     .logo {
         display: none;
     }
-   
+
     header {
         display: grid;
         gap: 2em;
     }
+
     .navBar {
         background: url("/background-all") no-repeat;
         display: grid;
@@ -367,20 +428,21 @@ nav ul li a:hover {
         height: 85vh;
         overflow: auto;
     }
-    
-    nav ul li{
+
+    nav ul li {
         margin: auto auto auto 20vw;
         height: fit-content;
     }
-    nav ul li a{
+
+    nav ul li a {
         font-size: 5vw;
         padding: auto;
     }
-   
+
     .home {
         display: inline;
     }
-   
+
     .below-nav {
         text-align: center;
         display: grid;
@@ -393,19 +455,27 @@ nav ul li a:hover {
         overflow: auto;
         height: 100vh;
     }
+
     .left-side {
         gap: 6vw;
         margin: 0;
         padding: 30px 0;
     }
-    .left-side .post{
+
+    .left-side .post {
         width: 70vw;
         margin: auto;
     }
-    .cycle, .cycle-2, .cycle-3, .cycle-4 {
+
+    .cycle,
+    .cycle-2,
+    .cycle-3,
+    .cycle-4 {
         width: 65vw;
     }
-    .p, .p2{
+
+    .p,
+    .p2 {
         width: 65vw;
     }
 }
