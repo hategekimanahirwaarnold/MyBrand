@@ -136,14 +136,6 @@ nav ul li a:hover {
     display: none;
 }
 
-.contAll {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 85vh;
-    overflow: auto;
-}
 .below-nav {
     background-image: url("/A\ book\ 2-my\ brand\ \(2\).jfif");
     background-repeat: no-repeat;
@@ -272,6 +264,7 @@ nav ul li a:hover {
         gap: 1em;
         margin-right: 0px;
     }
+    
     .below-nav {
         width: 700px;
     }
@@ -366,7 +359,7 @@ nav ul li a:hover {
         background-position: center;
         background-size: cover;
         background-attachment: fixed;
-        margin: 0px 0 0 0;
+        margin: -30px 0 0 0;
         padding: 10px;
         transition: all .5s ease;
         left: -100%;
@@ -386,13 +379,6 @@ nav ul li a:hover {
    
     .home {
         display: inline;
-    }
-    .contAll {
-        width: fit-content;
-        height: fit-content;
-        margin: 0;
-        padding: 0;
-        overflow: initial;
     }
    
     .below-nav {
