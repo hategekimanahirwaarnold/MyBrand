@@ -170,14 +170,14 @@ h2 {
     justify-content: space-evenly;
 }
 .top-left .left {
-    height: 200px;
+    height: 180px;
     width: 200px;
     background-color: #D9D9D9;
     border-radius: .4vw;
     box-shadow: -3px -4px gray;
 }
 .top-left .right {
-    height: 2000px;
+    height: 180px;
     width: 200px;
     background-color: #D9D9D9;
     border-radius: .4vw;
